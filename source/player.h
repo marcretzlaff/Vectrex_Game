@@ -20,6 +20,8 @@ struct player_t
 	enum player_status_t status;	// player status
 	int y;							// y coordinate byte
 	int x;							// x coordinate byte
+	int timeout;
+	int jump;
 };
 
 // ---------------------------------------------------------------------------

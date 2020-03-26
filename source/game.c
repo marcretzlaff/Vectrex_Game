@@ -41,7 +41,7 @@ void game_init(void)
 	disable_controller_2_y();
 	
 	// set player data
-	current_game.lives = 3; 
+	current_game.lives = 1; 
 	current_game.level = 1;
 	current_game.score = 0;
 }
@@ -109,7 +109,7 @@ int game(void)
 	}
 	else
 	{
-		return -1; 		// jump to title screen
+		return -1; 		// timeout to title screen
 	}
 }
 

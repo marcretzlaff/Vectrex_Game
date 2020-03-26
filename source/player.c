@@ -16,22 +16,36 @@ struct player_t player =
 {
 	.status = DEAD,
 	.y = 0,
-	.x = 0,
+	.x = -80,
+	.timeout = 0,
+	.jump = 0
 };
 
 // ---------------------------------------------------------------------------
 
 #undef SF
-#define SF 32
+#define SF 31
 
 
 const struct packet_t vectors_player[] =
 {
-	{MOVE, {  1 * SF, -1 * SF}},
-	{DRAW, {  0 * SF,  2 * SF}},
-	{DRAW, { -2 * SF,  0 * SF}},
-	{DRAW, {  0 * SF, -2 * SF}},
-	{DRAW, {  2 * SF,  0 * SF}},
+	{MOVE, { -1 * SF, -2 * SF}}, //left board
+	{DRAW, { -1 * SF,  0 * SF}}, //left board down
+	{DRAW, {  0 * SF,  4 * SF}}, //board bottom
+	{DRAW, {  1 * SF,  0 * SF}}, //right board up
+	{MOVE, { -1 * SF, -3 * SF}}, //goto left foot
+	{DRAW, {  1 * SF,  1 * SF}}, //left foot
+	{DRAW, { -1 * SF,  1 * SF}}, //right foot
+	{MOVE, {  1 * SF, -1 * SF}}, //goto waist
+	{DRAW, {  3 * SF,  0 * SF}}, //draw waist
+	{MOVE, { -2 * SF, -1 * SF}}, //goto left arm
+	{DRAW, {  1 * SF,  1 * SF}}, //draw left arm
+	{DRAW, { -1 * SF,  1 * SF}}, //draw right arm
+	{MOVE, {  2 * SF,  0 * SF}}, //goto right lower head
+	{DRAW, {  2 * SF,  0 * SF}}, //draw right
+	{DRAW, {  0 * SF, -2 * SF}}, //draw upper
+	{DRAW, { -2 * SF,  0 * SF}}, //draw left
+	{DRAW, {  0 * SF,  2 * SF}}, //draw lower
 	{STOP, { 0, 0}},
 };
 
@@ -57,33 +71,38 @@ void init_player(void)
 {
 	player.status = ALIVE;
 	player.y = 0;
-	player.x = 0;
+	player.x = -100;
+	player.timeout = 0;
+	player.jump = 0;
 }
 
 // ---------------------------------------------------------------------------
 
 void move_player(void)
 {
-	const int speed = 1;
+	const int speed = 2;
+	const int jumpmp = 6;
+	const int jump = 2;
+	const int timeoutmp = 5;
+	
+	//jump
+	if(player.jump) 
+	{
+		if(player.y < (127 - speed*jumpmp)) player.y += speed*jumpmp; //max height
+		else player.y = 127;
+		player.jump--;
+	}
+	else if(player.y > -127) player.y -= speed; //gravity, hitting floor -> dead
+	else player.status = DEAD; 
+	if(player.timeout) player.timeout--; //jump timeout
+	
 
 	check_joysticks();
-	
-	if (joystick_1_down())
+	//jump input
+	if (joystick_1_up() && (player.timeout == 0))
 	{
-		player.y -= speed;
-	}
-	else if (joystick_1_up())
-	{
-		player.y += speed;
-	}
-
-	if (joystick_1_left())
-	{
-		player.x -= speed;
-	}
-	else if (joystick_1_right())
-	{
-		player.x += speed;
+		player.jump = speed * jump;
+		player.timeout = speed * timeoutmp;
 	}
 }
 
@@ -91,7 +110,7 @@ void move_player(void)
 
 void handle_player(void)
 {
-	//move_player();
+	move_player();
 	draw_player();
 
 	if (player.status == DEAD)
