@@ -1,0 +1,266 @@
+                              1 
+                              2 ;;; gcc for m6809 : Feb 15 2016 21:40:10
+                              3 ;;; 4.3.6 (gcc6809)
+                              4 ;;; ABI version 1
+                              5 ;;; -mint8
+                              6 	.module	game.c
+                              7 	.globl _current_game
+                              8 	.area .data
+   0000                       9 _current_game:
+   0000 00 00                10 	.word	0	;skip space 9
+   0002 00 00                11 	.word	0	;skip space 7
+   0004 00 00                12 	.word	0	;skip space 5
+   0006 00 00                13 	.word	0	;skip space 3
+   0008 00                   14 	.byte	0	;skip space
+                             15 	.area .text
+                             16 	.globl _game_init
+   0000                      17 _game_init:
+   0000 C6 01         [ 2]   18 	ldb	#1
+   0002 F7 00 00      [ 5]   19 	stb	_Vec_Joy_Mux_1_X
+   0005 C6 03         [ 2]   20 	ldb	#3
+   0007 F7 00 00      [ 5]   21 	stb	_Vec_Joy_Mux_1_Y
+   000A 7F 00 00      [ 7]   22 	clr	_Vec_Joy_Mux_2_X
+   000D 7F 00 00      [ 7]   23 	clr	_Vec_Joy_Mux_2_Y
+   0010 C6 03         [ 2]   24 	ldb	#3
+   0012 F7 00 02      [ 5]   25 	stb	_current_game+2
+   0015 C6 01         [ 2]   26 	ldb	#1
+   0017 F7 00 04      [ 5]   27 	stb	_current_game+4
+   001A 7F 00 06      [ 7]   28 	clr	_current_game+6
+   001D 7F 00 07      [ 7]   29 	clr	_current_game+7
+   0020 F6 00 00      [ 5]   30 	ldb	_current_game
+   0023 C1 02         [ 2]   31 	cmpb	#2	;cmpqi:
+   0025 26 0C         [ 3]   32 	bne	L2
+   0027 C6 03         [ 2]   33 	ldb	#3
+   0029 F7 00 03      [ 5]   34 	stb	_current_game+3
+   002C C6 01         [ 2]   35 	ldb	#1
+   002E F7 00 05      [ 5]   36 	stb	_current_game+5
+   0031 20 06         [ 3]   37 	bra	L3
+   0033                      38 L2:
+   0033 7F 00 03      [ 7]   39 	clr	_current_game+3
+   0036 7F 00 05      [ 7]   40 	clr	_current_game+5
+   0039                      41 L3:
+   0039 7F 00 08      [ 7]   42 	clr	_current_game+8
+   003C 39            [ 5]   43 	rts
+                             44 	.globl _game_play
+   003D                      45 _game_play:
+   003D 32 7B         [ 5]   46 	leas	-5,s
+   003F 7E 00 A6      [ 4]   47 	jmp	L6
+   0042                      48 L9:
+   0042 BD 00 00      [ 8]   49 	jsr	_level_init
+   0045 BD 00 00      [ 8]   50 	jsr	_level_play
+   0048 F6 00 00      [ 5]   51 	ldb	_current_level
+   004B C1 02         [ 2]   52 	cmpb	#2	;cmpqi:
+   004D 26 1E         [ 3]   53 	bne	L7
+   004F F6 00 08      [ 5]   54 	ldb	_current_game+8
+   0052 E7 61         [ 5]   55 	stb	1,s
+                             56 	; ldb	1,s	; optimization 5
+   0054 4F            [ 2]   57 	clra		;zero_extendqihi: R:b -> R:d
+   0055 1F 01         [ 6]   58 	tfr	d,x
+   0057 E6 89 00 04   [ 8]   59 	ldb	_current_game+4,x
+   005B E7 E4         [ 4]   60 	stb	,s
+                             61 	; ldb	,s	; optimization 5
+   005D 5C            [ 2]   62 	incb
+   005E E7 E4         [ 4]   63 	stb	,s
+   0060 E6 61         [ 5]   64 	ldb	1,s
+   0062 4F            [ 2]   65 	clra		;zero_extendqihi: R:b -> R:d
+   0063 1F 01         [ 6]   66 	tfr	d,x
+   0065 E6 E4         [ 4]   67 	ldb	,s
+   0067 E7 89 00 04   [ 8]   68 	stb	_current_game+4,x
+   006B 20 39         [ 3]   69 	bra	L6
+   006D                      70 L7:
+   006D F6 00 08      [ 5]   71 	ldb	_current_game+8
+   0070 E7 62         [ 5]   72 	stb	2,s
+                             73 	; ldb	2,s	; optimization 5
+   0072 4F            [ 2]   74 	clra		;zero_extendqihi: R:b -> R:d
+   0073 1F 01         [ 6]   75 	tfr	d,x
+   0075 E6 89 00 02   [ 8]   76 	ldb	_current_game+2,x
+   0079 E7 E4         [ 4]   77 	stb	,s
+                             78 	; ldb	,s	; optimization 5
+   007B 5A            [ 2]   79 	decb
+   007C E7 E4         [ 4]   80 	stb	,s
+   007E E6 62         [ 5]   81 	ldb	2,s
+   0080 4F            [ 2]   82 	clra		;zero_extendqihi: R:b -> R:d
+   0081 1F 01         [ 6]   83 	tfr	d,x
+   0083 E6 E4         [ 4]   84 	ldb	,s
+   0085 E7 89 00 02   [ 8]   85 	stb	_current_game+2,x
+   0089 E6 62         [ 5]   86 	ldb	2,s
+   008B 4F            [ 2]   87 	clra		;zero_extendqihi: R:b -> R:d
+   008C 1F 01         [ 6]   88 	tfr	d,x
+   008E E6 89 00 02   [ 8]   89 	ldb	_current_game+2,x
+                             90 	; tstb	; optimization 6
+   0092 26 03         [ 3]   91 	bne	L8
+   0094 BD 00 CF      [ 8]   92 	jsr	_game_over
+   0097                      93 L8:
+   0097 F6 00 00      [ 5]   94 	ldb	_current_game
+   009A E7 63         [ 5]   95 	stb	3,s
+   009C F6 00 08      [ 5]   96 	ldb	_current_game+8
+   009F E0 63         [ 5]   97 	subb	3,s
+   00A1 50            [ 2]   98 	negb
+   00A2 5A            [ 2]   99 	decb
+   00A3 F7 00 08      [ 5]  100 	stb	_current_game+8
+   00A6                     101 L6:
+   00A6 F6 00 02      [ 5]  102 	ldb	_current_game+2
+   00A9 E7 E4         [ 4]  103 	stb	,s
+   00AB F6 00 03      [ 5]  104 	ldb	_current_game+3
+   00AE E7 64         [ 5]  105 	stb	4,s
+   00B0 E6 E4         [ 4]  106 	ldb	,s
+   00B2 EB 64         [ 5]  107 	addb	4,s
+   00B4 5D            [ 2]  108 	tstb
+   00B5 10 26 FF 89   [ 6]  109 	lbne	L9
+   00B9 32 65         [ 5]  110 	leas	5,s
+   00BB 39            [ 5]  111 	rts
+   00BC                     112 LC0:
+   00BC 47                  113 	.byte	0x47
+   00BD 41                  114 	.byte	0x41
+   00BE 4D                  115 	.byte	0x4D
+   00BF 45                  116 	.byte	0x45
+   00C0 20                  117 	.byte	0x20
+   00C1 4F                  118 	.byte	0x4F
+   00C2 56                  119 	.byte	0x56
+   00C3 45                  120 	.byte	0x45
+   00C4 52                  121 	.byte	0x52
+   00C5 80                  122 	.byte	0x80
+   00C6 00                  123 	.byte	0x00
+   00C7                     124 LC1:
+   00C7 50                  125 	.byte	0x50
+   00C8 4C                  126 	.byte	0x4C
+   00C9 41                  127 	.byte	0x41
+   00CA 59                  128 	.byte	0x59
+   00CB 45                  129 	.byte	0x45
+   00CC 52                  130 	.byte	0x52
+   00CD 80                  131 	.byte	0x80
+   00CE 00                  132 	.byte	0x00
+                            133 	.globl _game_over
+   00CF                     134 _game_over:
+   00CF 34 20         [ 6]  135 	pshs	y
+   00D1 32 76         [ 5]  136 	leas	-10,s
+   00D3 30 E4         [ 4]  137 	leax	,s
+   00D5 BD 00 00      [ 8]  138 	jsr	___Clear_Score
+   00D8 F6 00 08      [ 5]  139 	ldb	_current_game+8
+   00DB 4F            [ 2]  140 	clra		;zero_extendqihi: R:b -> R:d
+   00DC 1F 01         [ 6]  141 	tfr	d,x
+   00DE E6 89 00 06   [ 8]  142 	ldb	_current_game+6,x
+   00E2 E7 68         [ 5]  143 	stb	8,s
+   00E4 30 E4         [ 4]  144 	leax	,s
+   00E6 E6 68         [ 5]  145 	ldb	8,s
+   00E8 BD 00 00      [ 8]  146 	jsr	__Add_Score_a
+   00EB 31 E4         [ 4]  147 	leay	,s
+   00ED 8E 00 00      [ 3]  148 	ldx	#_Vec_High_Score
+   00F0 34 10         [ 6]  149 	pshs	x
+   00F2 30 A4         [ 4]  150 	leax	,y
+   00F4 BD 00 00      [ 8]  151 	jsr	__New_High_Score
+   00F7 32 62         [ 5]  152 	leas	2,s
+   00F9 C6 96         [ 2]  153 	ldb	#-106
+   00FB E7 67         [ 5]  154 	stb	7,s
+   00FD                     155 L13:
+   00FD BD 00 00      [ 8]  156 	jsr	_Sync
+   0100 BD 00 00      [ 8]  157 	jsr	___Intensity_5F
+   0103 C6 C0         [ 2]  158 	ldb	#-64
+   0105 E7 E2         [ 6]  159 	stb	,-s
+   0107 8E 00 BC      [ 3]  160 	ldx	#LC0
+   010A 5F            [ 2]  161 	clrb
+   010B BD 00 00      [ 8]  162 	jsr	_print_string
+   010E 32 61         [ 5]  163 	leas	1,s
+   0110 C6 9C         [ 2]  164 	ldb	#-100
+   0112 E7 E2         [ 6]  165 	stb	,-s
+   0114 8E 00 C7      [ 3]  166 	ldx	#LC1
+   0117 C6 14         [ 2]  167 	ldb	#20
+   0119 BD 00 00      [ 8]  168 	jsr	_print_string
+   011C 32 61         [ 5]  169 	leas	1,s
+   011E F6 00 08      [ 5]  170 	ldb	_current_game+8
+   0121 5C            [ 2]  171 	incb
+   0122 34 04         [ 6]  172 	pshs	b
+   0124 C6 28         [ 2]  173 	ldb	#40
+   0126 E7 E2         [ 6]  174 	stb	,-s
+   0128 C6 14         [ 2]  175 	ldb	#20
+   012A BD 00 00      [ 8]  176 	jsr	_print_unsigned_int
+   012D 32 62         [ 5]  177 	leas	2,s
+   012F F6 00 08      [ 5]  178 	ldb	_current_game+8
+   0132 4F            [ 2]  179 	clra		;zero_extendqihi: R:b -> R:d
+   0133 1F 01         [ 6]  180 	tfr	d,x
+   0135 E6 89 00 02   [ 8]  181 	ldb	_current_game+2,x
+   0139 E7 69         [ 5]  182 	stb	9,s
+   013B C6 69         [ 2]  183 	ldb	#105
+   013D E7 E2         [ 6]  184 	stb	,-s
+   013F 8E C0 E2      [ 3]  185 	ldx	#-16158
+   0142 E6 6A         [ 5]  186 	ldb	10,s
+   0144 BD 00 00      [ 8]  187 	jsr	__Print_Ships
+   0147 32 61         [ 5]  188 	leas	1,s
+   0149 BD 00 00      [ 8]  189 	jsr	___Read_Btns
+   014C 6A 67         [ 7]  190 	dec	7,s
+                            191 	; tst	7,s	; optimization 1
+   014E 27 0A         [ 3]  192 	beq	L14
+   0150 F6 00 00      [ 5]  193 	ldb	_Vec_Buttons
+   0153 C4 08         [ 2]  194 	andb	#8
+   0155 5D            [ 2]  195 	tstb
+   0156 10 27 FF A3   [ 6]  196 	lbeq	L13
+   015A                     197 L14:
+   015A 32 6A         [ 5]  198 	leas	10,s
+   015C 35 A0         [ 7]  199 	puls	y,pc
+                            200 	.globl _game
+   015E                     201 _game:
+   015E 32 7F         [ 5]  202 	leas	-1,s
+   0160 C6 02         [ 2]  203 	ldb	#2
+   0162 E7 E2         [ 6]  204 	stb	,-s
+   0164 C6 05         [ 2]  205 	ldb	#5
+   0166 BD 00 00      [ 8]  206 	jsr	__Select_Game
+   0169 32 61         [ 5]  207 	leas	1,s
+   016B F6 00 00      [ 5]  208 	ldb	_Vec_Num_Players
+   016E F7 00 00      [ 5]  209 	stb	_current_game
+   0171 F6 00 00      [ 5]  210 	ldb	_Vec_Num_Game
+   0174 F7 00 01      [ 5]  211 	stb	_current_game+1
+   0177 F6 00 00      [ 5]  212 	ldb	_Vec_Btn_State
+   017A C4 08         [ 2]  213 	andb	#8
+   017C 5D            [ 2]  214 	tstb
+   017D 27 0A         [ 3]  215 	beq	L16
+   017F BD 00 00      [ 8]  216 	jsr	_game_init
+   0182 BD 00 3D      [ 8]  217 	jsr	_game_play
+   0185 6F E4         [ 6]  218 	clr	,s
+   0187 20 04         [ 3]  219 	bra	L17
+   0189                     220 L16:
+   0189 C6 FF         [ 2]  221 	ldb	#-1
+   018B E7 E4         [ 4]  222 	stb	,s
+   018D                     223 L17:
+   018D E6 E4         [ 4]  224 	ldb	,s
+   018F 32 61         [ 5]  225 	leas	1,s
+   0191 39            [ 5]  226 	rts
+ASxxxx Assembler V05.00  (Motorola 6809), page 1.
+Hexidecimal [16-Bits]
+
+Symbol Table
+
+    .__.$$$.       =   2710 L   |     .__.ABS.       =   0000 G
+    .__.CPU.       =   0000 L   |     .__.H$L.       =   0001 L
+  3 L13                00FD R   |   3 L14                015A R
+  3 L16                0189 R   |   3 L17                018D R
+  3 L2                 0033 R   |   3 L3                 0039 R
+  3 L6                 00A6 R   |   3 L7                 006D R
+  3 L8                 0097 R   |   3 L9                 0042 R
+  3 LC0                00BC R   |   3 LC1                00C7 R
+    _Sync              **** GX  |     _Vec_Btn_State     **** GX
+    _Vec_Buttons       **** GX  |     _Vec_High_Scor     **** GX
+    _Vec_Joy_Mux_1     **** GX  |     _Vec_Joy_Mux_1     **** GX
+    _Vec_Joy_Mux_2     **** GX  |     _Vec_Joy_Mux_2     **** GX
+    _Vec_Num_Game      **** GX  |     _Vec_Num_Playe     **** GX
+    __Add_Score_a      **** GX  |     __New_High_Sco     **** GX
+    __Print_Ships      **** GX  |     __Select_Game      **** GX
+    ___Clear_Score     **** GX  |     ___Intensity_5     **** GX
+    ___Read_Btns       **** GX  |   2 _current_game      0000 GR
+    _current_level     **** GX  |   3 _game              015E GR
+  3 _game_init         0000 GR  |   3 _game_over         00CF GR
+  3 _game_play         003D GR  |     _level_init        **** GX
+    _level_play        **** GX  |     _print_string      **** GX
+    _print_unsigne     **** GX
+
+ASxxxx Assembler V05.00  (Motorola 6809), page 2.
+Hexidecimal [16-Bits]
+
+Area Table
+
+[_CSEG]
+   0 _CODE            size    0   flags C080
+   2 .data            size    9   flags  100
+   3 .text            size  192   flags  100
+[_DSEG]
+   1 _DATA            size    0   flags C0C0
+

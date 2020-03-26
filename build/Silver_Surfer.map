@@ -1,0 +1,1119 @@
+ASxxxx Linker V05.00,  page 1.
+Hexidecimal  [16-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.  .ABS.                   0000        0000 =           0. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          0000  l_.bss                          
+          0000  l__DATA                         
+          0000  l__CODE                         
+          0000  s__DATA                         
+          0000  s__CODE                         
+          0000  s_direct                        
+          0000  l_.text.unlikely                
+          0000  .__.ABS.                           crt0.c
+          0000  s_.cartridge                    
+          0000  l_.text.hot                     
+          0001  l_.0xf0                         
+          0002  l_.0xe9                         
+          000E  l_.data                         
+          0010  l_.dpd0                         
+          0016  l_.dpcb                         
+          0019  l_.dped                         
+          001E  l_.0xe7                         
+          0020  s_.text                         
+          0020  l_.cartridge                    
+          0021  l_.dpfc                         
+          0068  l_.0xf7                         
+          007A  l_.dpff                         
+          0080  l_.dpc8                         
+          0092  l_.0xf6                         
+          0095  l_.0xf4                         
+          009D  l_.0xf9                         
+          00A7  l_.0xf2                         
+          00AD  l_.0xf1                         
+          00B3  l_.0xea                         
+          00C7  l_.dpfd                         
+          00CB  l_.0xf8                         
+          00D1  l_.dpfe                         
+          00D8  l_.0xf3                         
+          00EF  l_.0xf5                         
+          0100  l_direct                        
+          0DE3  l_.text                         
+          0E03  s_.text.unlikely                
+          0E03  s_.text.hot                     
+          C800  s_.dpc8                         
+          C880  s_.data                         
+          C88E  s_.bss                          
+          CBEA  s_.dpcb                         
+          D000  s_.dpd0                         
+          E7B5  s_.0xe7                         
+          E98A  s_.0xe9                         
+          EA3E  s_.0xea                         
+          ED77  s_.dped                         
+          F000  s_.0xf0                         
+          F000  _free                              gcc.c
+          F000  _malloc                            gcc.c
+ASxxxx Linker V05.00,  page 2.
+Hexidecimal  [16-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.  .ABS.                   0000        0000 =           0. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          F000  _abort                             gcc.c
+          F14C  s_.0xf1                         
+          F256  s_.0xf2                         
+          F308  s_.0xf3                         
+          F404  s_.0xf4                         
+          F511  s_.0xf5                         
+          F601  s_.0xf6                         
+          F742  s_.0xf7                         
+          F835  s_.0xf8                         
+          F92E  s_.0xf9                         
+          FC6D  s_.dpfc                         
+          FD0D  s_.dpfd                         
+          FE28  s_.dpfe                         
+          FF16  s_.dpff                         
+ASxxxx Linker V05.00,  page 3.
+Hexidecimal  [16-Bits]
+[ Bank == rom ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.cartridge                 0000        0020 =          32. bytes (REL,CON,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          0000  _game_header                       cartridge.c
+
+ASxxxx Linker V05.00,  page 4.
+Hexidecimal  [16-Bits]
+[ Bank == rom ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.text                      0020        0DE3 =        3555. bytes (REL,CON,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          005B  _memcmp                            gcc.c
+          00AC  _memcpy                            gcc.c
+          00DB  _memmove                           gcc.c
+          0141  _memset                            gcc.c
+          015B  __Dot_d                            vec_rum_fct_pjc.c
+          0160  __Dot_dd                           vec_rum_fct_pjc.c
+          0165  __Print_Str_hwyx                   vec_rum_fct_pjc.c
+          016E  __Print_Str_yx                     vec_rum_fct_pjc.c
+          0177  __Print_Str_d                      vec_rum_fct_pjc.c
+          0182  __Print_Str_dd                     vec_rum_fct_pjc.c
+          018D  __Print_List_hw                    vec_rum_fct_pjc.c
+          0196  __Print_List                       vec_rum_fct_pjc.c
+          019F  __Print_List_chk                   vec_rum_fct_pjc.c
+          01A8  __Print_Ships_x                    vec_rum_fct_pjc.c
+          01AD  __Print_Ships                      vec_rum_fct_pjc.c
+          01B2  __Print_Str                        vec_rum_fct_pjc.c
+          01BB  __Print_MRast                      vec_rum_fct_pjc.c
+          01C2  __Draw_Pat_VL_aa                   vec_rum_fct_pjc.c
+          01C7  __Draw_Pat_VL_a                    vec_rum_fct_pjc.c
+          01CC  __Draw_Line_d                      vec_rum_fct_pjc.c
+          01D1  __Draw_VL_ab                       vec_rum_fct_pjc.c
+          01D6  __Draw_VL_a                        vec_rum_fct_pjc.c
+          01DB  __Mov_Draw_VL_ab                   vec_rum_fct_pjc.c
+          01E0  __Mov_Draw_VL_a                    vec_rum_fct_pjc.c
+          01E5  __Mov_Draw_VL_d                    vec_rum_fct_pjc.c
+          01EA  __Rot_VL_Mode                      vec_rum_fct_pjc.c
+          01F5  __Rot_VL_Pack                      vec_rum_fct_pjc.c
+          01FE  __Rot_VL_M_dft                     vec_rum_fct_pjc.c
+          0207  __Random_3                         vec_rum_fct_pjc.c
+          020D  __Random                           vec_rum_fct_pjc.c
+          0213  __Bitmask_a                        vec_rum_fct_pjc.c
+          021B  __Abs_a_b                          vec_rum_fct_pjc.c
+          0223  __Xform_Sin                        vec_rum_fct_pjc.c
+          022B  __Get_Rise_Run                     vec_rum_fct_pjc.c
+          0231  __Xform_Run_a                      vec_rum_fct_pjc.c
+          0239  __Xform_Run                        vec_rum_fct_pjc.c
+          023F  __Xform_Rise_a                     vec_rum_fct_pjc.c
+          0247  __Xform_Rise                       vec_rum_fct_pjc.c
+          024D  __Clear_x_d                        vec_rum_fct_pjc.c
+          0252  __Move_Mem_a_1                     vec_rum_fct_pjc.c
+          025D  __Move_Mem_a                       vec_rum_fct_pjc.c
+          0268  __Clear_x_b_a                      vec_rum_fct_pjc.c
+          026D  __Read_Btns_Mask                   vec_rum_fct_pjc.c
+          0272  __Select_Game                      vec_rum_fct_pjc.c
+          027B  __Display_Option                   vec_rum_fct_pjc.c
+          0286  __Add_Score_a                      vec_rum_fct_pjc.c
+          028F  __Add_Score_d                      vec_rum_fct_pjc.c
+          0294  __Compare_Score                    vec_rum_fct_pjc.c
+          029F  __New_High_Score                   vec_rum_fct_pjc.c
+ASxxxx Linker V05.00,  page 5.
+Hexidecimal  [16-Bits]
+[ Bank == rom ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.text                      0020        0DE3 =        3555. bytes (REL,CON,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          02A8  __Sound_Byte                       vec_rum_fct_pjc.c
+          02AD  __Sound_Byte_x                     vec_rum_fct_pjc.c
+          02B2  __Sound_Bytes                      vec_rum_fct_pjc.c
+          02BB  __Sound_Bytes_x                    vec_rum_fct_pjc.c
+          02C4  __Do_Sound                         vec_rum_fct_pjc.c
+          02CB  __Init_Music_chk                   vec_rum_fct_pjc.c
+          02D4  __Init_Music                       vec_rum_fct_pjc.c
+          02DD  __Init_Music_a                     vec_rum_fct_pjc.c
+          02E6  __Init_Music_x                     vec_rum_fct_pjc.c
+          02EF  __Explosion_Snd                    vec_rum_fct_pjc.c
+          02F8  __Moveto_d_7F                      vec_rum_fct_pjc.c
+          02FD  __Moveto_dd_7F                     vec_rum_fct_pjc.c
+          0302  __Moveto_d                         vec_rum_fct_pjc.c
+          0307  __Moveto_dd                        vec_rum_fct_pjc.c
+          030C  __Intensity_a                      vec_rum_fct_pjc.c
+          0311  __Obj_Will_Hit_u                   vec_rum_fct_pjc.c
+          0323  __Obj_Will_Hit                     vec_rum_fct_pjc.c
+          0335  __Obj_Hit                          vec_rum_fct_pjc.c
+          0345  __Rise_Run_X                       vec_rum_fct_pjc.c
+          034D  __Rise_Run_Y                       vec_rum_fct_pjc.c
+          0355  __Rise_Run_Len                     vec_rum_fct_pjc.c
+          035D  __Rot_VL_ab                        vec_rum_fct_pjc.c
+          0368  __Rot_VL_Diff                      vec_rum_fct_pjc.c
+          0371  __Rot_VL                           vec_rum_fct_pjc.c
+          037A  __Dot_y                            vec_rum_fct_pjc.c
+          0383  __Dot_py                           vec_rum_fct_pjc.c
+          038C  __Draw_Pack                        vec_rum_fct_pjc.c
+          0396  __Draw_Pack_py                     vec_rum_fct_pjc.c
+          03A0  __Print_Msg                        vec_rum_fct_pjc.c
+          03AB  __Displ8_xy                        vec_rum_fct_pjc.c
+          03B4  __Displ16_xy                       vec_rum_fct_pjc.c
+          03BD  __Ranpos                           vec_rum_fct_pjc.c
+          03C3  __Draw_Scores                      vec_rum_fct_pjc.c
+          03CA  __Draw_Score                       vec_rum_fct_pjc.c
+          03D1  __Wait_Bound                       vec_rum_fct_pjc.c
+          03D8  _check_collision                   collision.c
+          043D  __f_debug                          debug.c
+          05E1  _game_init                         game.c
+          061E  _game_play                         game.c
+          06B0  _game_over                         game.c
+          073F  _game                              game.c
+          0773  _level_init                        level.c
+          0777  _level_play                        level.c
+          079F  _main                              main.c
+          07AD  _trigonometry_64                   math.c
+          09AD  _print_string                      print.c
+          09E0  _print_unsigned_int                print.c
+          0A66  _print_signed_int                  print.c
+          0B1A  _print_long_unsigned_int           print.c
+          0BA4  _print_long_signed_int             print.c
+ASxxxx Linker V05.00,  page 6.
+Hexidecimal  [16-Bits]
+[ Bank == rom ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.text                      0020        0DE3 =        3555. bytes (REL,CON,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          0C65  _print_binary                      print.c
+          0CD6  _music_off                         sound.c
+          0CDE  _explosion_off                     sound.c
+          0CE2  _sound_init                        sound.c
+          0CEF  _stop_explosion                    sound.c
+          0CFC  _stop_music                        sound.c
+          0D06  _play_music                        sound.c
+          0D1A  _play_explosion                    sound.c
+          0D31  _play_tune                         sound.c
+          0D94  _Sync                              utils.c
+          0DB2  _umodhi3                           
+          0DC3  _udivhi3                           
+          0DD1  _euclid                            
+ASxxxx Linker V05.00,  page 7.
+Hexidecimal  [16-Bits]
+[ Bank == ram ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.data                      C880        000E =          14. bytes (REL,CON,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          C880  _current_game                      game.c
+          C889  _current_level                     level.c
+          C88A  _current_music                     sound.c
+          C88C  _current_explosion                 sound.c
+ASxxxx Linker V05.00,  page 8.
+Hexidecimal  [16-Bits]
+[ Bank == page_c8 ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.dpc8                      C800        0080 =         128. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          C800  _Vec_Snd_shadow                    vec_ram_0xc8_0.c
+          C800  _Vec_Snd_Shadow                    vec_ram_0xc8_1.c
+          C80F  _Vec_Btn_State                     vec_ram_0xc8_0.c
+          C810  _Vec_Prev_Btns                     vec_ram_0xc8_0.c
+          C811  _Vec_Buttons                       vec_ram_0xc8_0.c
+          C812  _Vec_Button_1_1                    vec_ram_0xc8_0.c
+          C813  _Vec_Button_1_2                    vec_ram_0xc8_0.c
+          C814  _Vec_Button_1_3                    vec_ram_0xc8_0.c
+          C815  _Vec_Button_1_4                    vec_ram_0xc8_0.c
+          C816  _Vec_Button_2_1                    vec_ram_0xc8_0.c
+          C817  _Vec_Button_2_2                    vec_ram_0xc8_0.c
+          C818  _Vec_Button_2_3                    vec_ram_0xc8_0.c
+          C819  _Vec_Button_2_4                    vec_ram_0xc8_0.c
+          C81A  _Vec_Joy_Resltn                    vec_ram_0xc8_0.c
+          C81B  _Vec_Joy_1_X                       vec_ram_0xc8_0.c
+          C81C  _Vec_Joy_1_Y                       vec_ram_0xc8_0.c
+          C81D  _Vec_Joy_2_X                       vec_ram_0xc8_0.c
+          C81E  _Vec_Joy_2_Y                       vec_ram_0xc8_0.c
+          C81F  _Vec_Joy_mux                       vec_ram_0xc8_0.c
+          C81F  _Vec_Joy_Mux_1_X                   vec_ram_0xc8_1.c
+          C81F  _Vec_Joy_Mux                       vec_ram_0xc8_2.c
+          C820  _Vec_Joy_Mux_1_Y                   vec_ram_0xc8_1.c
+          C821  _Vec_Joy_Mux_2_X                   vec_ram_0xc8_1.c
+          C822  _Vec_Joy_Mux_2_Y                   vec_ram_0xc8_1.c
+          C823  _Vec_Misc_Count                    vec_ram_0xc8_0.c
+          C824  _Vec_0Ref_Enable                   vec_ram_0xc8_0.c
+          C825  _Vec_Loop_Count                    vec_ram_0xc8_0.c
+          C825  _Vec_Loop_Count_hi                 vec_ram_0xc8_1.c
+          C826  _Vec_Loop_Count_lo                 vec_ram_0xc8_1.c
+          C827  _Vec_Brightness                    vec_ram_0xc8_0.c
+          C828  _Vec_Dot_Dwell                     vec_ram_0xc8_0.c
+          C829  _Vec_Pattern                       vec_ram_0xc8_0.c
+          C82A  _Vec_Text_HW                       vec_ram_0xc8_0.c
+          C82A  _Vec_Text_Height                   vec_ram_0xc8_1.c
+          C82B  _Vec_Text_Width                    vec_ram_0xc8_1.c
+          C82C  _Vec_Str_Ptr                       vec_ram_0xc8_0.c
+          C82E  _Vec_counters                      vec_ram_0xc8_0.c
+          C82E  _Vec_Counter_1                     vec_ram_0xc8_1.c
+          C82E  _Vec_Counters                      vec_ram_0xc8_2.c
+          C82F  _Vec_Counter_2                     vec_ram_0xc8_1.c
+          C830  _Vec_Counter_3                     vec_ram_0xc8_1.c
+          C831  _Vec_Counter_4                     vec_ram_0xc8_1.c
+          C832  _Vec_Counter_5                     vec_ram_0xc8_1.c
+          C833  _Vec_Counter_6                     vec_ram_0xc8_1.c
+          C834  _Vec_RiseRun_Tmp                   vec_ram_0xc8_0.c
+          C836  _Vec_Angle                         vec_ram_0xc8_0.c
+          C837  _Vec_Run_Index                     vec_ram_0xc8_0.c
+          C839  _Vec_Rise_Index                    vec_ram_0xc8_0.c
+          C839  _Vec_XXX_00                        vec_ram_0xc8_1.c
+ASxxxx Linker V05.00,  page 9.
+Hexidecimal  [16-Bits]
+[ Bank == page_c8 ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.dpc8                      C800        0080 =         128. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          C83B  _Vec_RiseRun_Len                   vec_ram_0xc8_0.c
+          C83B  _Vec_XXX_01                        vec_ram_0xc8_1.c
+          C83C  _Vec_XXX_02                        vec_ram_0xc8_0.c
+          C83D  _Vec_Rfrsh                         vec_ram_0xc8_0.c
+          C83D  _Vec_Rfrsh_lo                      vec_ram_0xc8_1.c
+          C83E  _Vec_Rfrsh_hi                      vec_ram_0xc8_1.c
+          C83F  _Vec_Music_Work                    vec_ram_0xc8_0.c
+          C842  _Vec_Music_Wk_A                    vec_ram_0xc8_0.c
+          C843  _Vec_XXX_03                        vec_ram_0xc8_0.c
+          C844  _Vec_XXX_04                        vec_ram_0xc8_0.c
+          C845  _Vec_Music_Wk_7                    vec_ram_0xc8_0.c
+          C846  _Vec_Music_Wk_6                    vec_ram_0xc8_0.c
+          C847  _Vec_Music_Wk_5                    vec_ram_0xc8_0.c
+          C848  _Vec_XXX_05                        vec_ram_0xc8_0.c
+          C849  _Vec_XXX_06                        vec_ram_0xc8_0.c
+          C84A  _Vec_XXX_07                        vec_ram_0xc8_0.c
+          C84B  _Vec_Music_Wk_1                    vec_ram_0xc8_0.c
+          C84C  _Vec_XXX_08                        vec_ram_0xc8_0.c
+          C84D  _Vec_Freq_Table                    vec_ram_0xc8_0.c
+          C84F  _Vec_ADSR_Table                    vec_ram_0xc8_0.c
+          C84F  _Vec_Max_Players                   vec_ram_0xc8_1.c
+          C850  _Vec_Max_Games                     vec_ram_0xc8_1.c
+          C851  _Vec_Twang_Table                   vec_ram_0xc8_0.c
+          C853  _Vec_Music_Ptr                     vec_ram_0xc8_0.c
+          C853  _Vec_Expl_ChanA                    vec_ram_0xc8_1.c
+          C854  _Vec_Expl_Chans                    vec_ram_0xc8_1.c
+          C855  _Vec_Music_Chan                    vec_ram_0xc8_0.c
+          C856  _Vec_Music_Flag                    vec_ram_0xc8_0.c
+          C857  _Vec_Duration                      vec_ram_0xc8_0.c
+          C858  _Vec_Expl_1                        vec_ram_0xc8_0.c
+          C858  _Vec_Music_Twang                   vec_ram_0xc8_1.c
+          C859  _Vec_Expl_2                        vec_ram_0xc8_0.c
+          C85A  _Vec_Expl_3                        vec_ram_0xc8_0.c
+          C85B  _Vec_Expl_4                        vec_ram_0xc8_0.c
+          C85C  _Vec_Expl_Chan                     vec_ram_0xc8_0.c
+          C85D  _Vec_Expl_ChanB                    vec_ram_0xc8_0.c
+          C85E  _Vec_ADSR_timers                   vec_ram_0xc8_0.c
+          C85E  _Vec_ADSR_Timers                   vec_ram_0xc8_1.c
+          C85E  _Vec_XXX_09                        vec_ram_0xc8_2.c
+          C861  _Vec_Music_freq                    vec_ram_0xc8_0.c
+          C861  _Vec_Music_Freq                    vec_ram_0xc8_1.c
+          C867  _Vec_Expl_Flag                     vec_ram_0xc8_0.c
+          C868  _Vec_XXX_10                        vec_ram_0xc8_0.c
+          C869  _Vec_XXX_11                        vec_ram_0xc8_0.c
+          C86A  _Vec_XXX_12                        vec_ram_0xc8_0.c
+          C86B  _Vec_XXX_13                        vec_ram_0xc8_0.c
+          C86C  _Vec_XXX_14                        vec_ram_0xc8_0.c
+          C86D  _Vec_XXX_15                        vec_ram_0xc8_0.c
+          C86E  _Vec_XXX_16                        vec_ram_0xc8_0.c
+          C86F  _Vec_XXX_17                        vec_ram_0xc8_0.c
+ASxxxx Linker V05.00,  page 10.
+Hexidecimal  [16-Bits]
+[ Bank == page_c8 ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.dpc8                      C800        0080 =         128. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          C870  _Vec_XXX_18                        vec_ram_0xc8_0.c
+          C871  _Vec_XXX_19                        vec_ram_0xc8_0.c
+          C872  _Vec_XXX_20                        vec_ram_0xc8_0.c
+          C873  _Vec_XXX_21                        vec_ram_0xc8_0.c
+          C874  _Vec_XXX_22                        vec_ram_0xc8_0.c
+          C875  _Vec_XXX_23                        vec_ram_0xc8_0.c
+          C876  _Vec_XXX_24                        vec_ram_0xc8_0.c
+          C877  _Vec_Expl_Timer                    vec_ram_0xc8_0.c
+          C878  _Vec_XXX_25                        vec_ram_0xc8_0.c
+          C879  _Vec_Num_Players                   vec_ram_0xc8_0.c
+          C87A  _Vec_Num_Game                      vec_ram_0xc8_0.c
+          C87B  _Vec_Seed_Ptr                      vec_ram_0xc8_0.c
+          C87D  _Vec_Random_Seed0                  vec_ram_0xc8_0.c
+          C87D  _Vec_Random_Seed                   vec_ram_0xc8_1.c
+          C87E  _Vec_Random_Seed1                  vec_ram_0xc8_0.c
+          C87F  _Vec_Random_Seed2                  vec_ram_0xc8_0.c
+
+ASxxxx Linker V05.00,  page 11.
+Hexidecimal  [16-Bits]
+[ Bank == page_cb ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.dpcb                      CBEA        0016 =          22. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          CBEA  _Vec_Default_Stk                   vec_ram_0xcb_0.c
+          CBEB  _Vec_High_Score                    vec_ram_0xcb_0.c
+          CBEB  _Vec_High_score                    vec_ram_0xcb_1.c
+          CBF2  _Vec_SWI3_Vector                   vec_ram_0xcb_0.c
+          CBF2  _Vec_SWI3_vector                   vec_ram_0xcb_1.c
+          CBF2  _Vec_SWI2_Vector                   vec_ram_0xcb_2.c
+          CBF2  _Vec_SWI2_vector                   vec_ram_0xcb_3.c
+          CBF5  _Vec_FIRQ_Vector                   vec_ram_0xcb_0.c
+          CBF5  _Vec_FIRQ_vector                   vec_ram_0xcb_1.c
+          CBF8  _Vec_IRQ_Vector                    vec_ram_0xcb_0.c
+          CBF8  _Vec_IRQ_vector                    vec_ram_0xcb_1.c
+          CBFB  _Vec_SWI_Vector                    vec_ram_0xcb_0.c
+          CBFB  _Vec_SWI_vector                    vec_ram_0xcb_1.c
+          CBFB  _Vec_NWI_Vector                    vec_ram_0xcb_2.c
+          CBFB  _Vec_NWI_vector                    vec_ram_0xcb_3.c
+          CBFE  _Vec_Cold_Flag                     vec_ram_0xcb_0.c
+ASxxxx Linker V05.00,  page 12.
+Hexidecimal  [16-Bits]
+[ Bank == page_d0 ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.dpd0                      D000        0010 =          16. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          D000  _VIA_port_b                        vec_ram_0xd0_0.c
+          D000  _VIA_port_ba                       vec_ram_0xd0_1.c
+          D001  _VIA_port_a                        vec_ram_0xd0_0.c
+          D002  _VIA_DDR_b                         vec_ram_0xd0_0.c
+          D002  _VIA_DDR_ba                        vec_ram_0xd0_1.c
+          D003  _VIA_DDR_a                         vec_ram_0xd0_0.c
+          D004  _VIA_t1_cnt_lo                     vec_ram_0xd0_0.c
+          D004  _VIA_t1_cnt                        vec_ram_0xd0_1.c
+          D005  _VIA_t1_cnt_hi                     vec_ram_0xd0_0.c
+          D006  _VIA_t1_lch_lo                     vec_ram_0xd0_0.c
+          D006  _VIA_t1_lch                        vec_ram_0xd0_1.c
+          D007  _VIA_t1_lch_hi                     vec_ram_0xd0_0.c
+          D008  _VIA_t2_lo                         vec_ram_0xd0_0.c
+          D008  _VIA_t2                            vec_ram_0xd0_1.c
+          D009  _VIA_t2_hi                         vec_ram_0xd0_0.c
+          D00A  _VIA_shift_reg                     vec_ram_0xd0_0.c
+          D00A  _dummy                             vec_ram_0xd0_1.c
+          D00B  _VIA_aux_cntl                      vec_ram_0xd0_0.c
+          D00B  _VIA_aux_cntl_w                    vec_ram_0xd0_1.c
+          D00C  _VIA_cntl                          vec_ram_0xd0_0.c
+          D00D  _VIA_int_flags                     vec_ram_0xd0_0.c
+          D00E  _VIA_int_enable                    vec_ram_0xd0_0.c
+          D00F  _VIA_port_a_nohs                   vec_ram_0xd0_0.c
+
+ASxxxx Linker V05.00,  page 13.
+Hexidecimal  [16-Bits]
+[ Bank == page_00 ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+direct                     0000        0100 =         256. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          0000  _dp_Vec_Snd_shadow                 vec_ram_dpc8_0.c
+          0000  _dp_Vec_Snd_Shadow                 vec_ram_dpc8_1.c
+          0000  _dp_VIA_port_b                     vec_ram_dpd0_0.c
+          0000  _dp_VIA_port_ba                    vec_ram_dpd0_1.c
+          0001  _dp_VIA_port_a                     vec_ram_dpd0_0.c
+          0002  _dp_VIA_DDR_b                      vec_ram_dpd0_0.c
+          0002  _dp_VIA_DDR_ba                     vec_ram_dpd0_1.c
+          0003  _dp_VIA_DDR_a                      vec_ram_dpd0_0.c
+          0004  _dp_VIA_t1_cnt_lo                  vec_ram_dpd0_0.c
+          0004  _dp_VIA_t1_cnt                     vec_ram_dpd0_1.c
+          0005  _dp_VIA_t1_cnt_hi                  vec_ram_dpd0_0.c
+          0006  _dp_VIA_t1_lch_lo                  vec_ram_dpd0_0.c
+          0006  _dp_VIA_t1_lch                     vec_ram_dpd0_1.c
+          0007  _dp_VIA_t1_lch_hi                  vec_ram_dpd0_0.c
+          0008  _dp_VIA_t2_lo                      vec_ram_dpd0_0.c
+          0008  _dp_VIA_t2                         vec_ram_dpd0_1.c
+          0009  _dp_VIA_t2_hi                      vec_ram_dpd0_0.c
+          000A  _dp_VIA_shift_reg                  vec_ram_dpd0_0.c
+          000A  _dp_dummy                          vec_ram_dpd0_1.c
+          000B  _dp_VIA_aux_cntl                   vec_ram_dpd0_0.c
+          000B  _dp_VIA_aux_cntl_w                 vec_ram_dpd0_1.c
+          000C  _dp_VIA_cntl                       vec_ram_dpd0_0.c
+          000D  _dp_VIA_int_flags                  vec_ram_dpd0_0.c
+          000D  _dp_Vec_Music_1                    vec_rom_dpfd_0.c
+          000E  _dp_VIA_int_enable                 vec_ram_dpd0_0.c
+          000F  _dp_Vec_Btn_State                  vec_ram_dpc8_0.c
+          000F  _dp_VIA_port_a_nohs                vec_ram_dpd0_0.c
+          0010  _dp_Vec_Prev_Btns                  vec_ram_dpc8_0.c
+          0011  _dp_Vec_Buttons                    vec_ram_dpc8_0.c
+          0012  _dp_Vec_Button_1_1                 vec_ram_dpc8_0.c
+          0013  _dp_Vec_Button_1_2                 vec_ram_dpc8_0.c
+          0014  _dp_Vec_Button_1_3                 vec_ram_dpc8_0.c
+          0015  _dp_Vec_Button_1_4                 vec_ram_dpc8_0.c
+          0016  _dp_Vec_Button_2_1                 vec_ram_dpc8_0.c
+          0016  _dp_Vec_ADSR_FADE8                 vec_rom_dpff_0.c
+          0017  _dp_Vec_Button_2_2                 vec_ram_dpc8_0.c
+          0018  _dp_Vec_Button_2_3                 vec_ram_dpc8_0.c
+          0019  _dp_Vec_Button_2_4                 vec_ram_dpc8_0.c
+          001A  _dp_Vec_Joy_Resltn                 vec_ram_dpc8_0.c
+          001B  _dp_Vec_Joy_1_X                    vec_ram_dpc8_0.c
+          001C  _dp_Vec_Joy_1_Y                    vec_ram_dpc8_0.c
+          001D  _dp_Vec_Joy_2_X                    vec_ram_dpc8_0.c
+          001D  _dp_Vec_Music_2                    vec_rom_dpfd_0.c
+          001E  _dp_Vec_Joy_2_Y                    vec_ram_dpc8_0.c
+          001F  _dp_Vec_Joy_mux                    vec_ram_dpc8_0.c
+          001F  _dp_Vec_Joy_Mux_1_X                vec_ram_dpc8_1.c
+          001F  _dp_Vec_Joy_Mux                    vec_ram_dpc8_2.c
+          0020  _dp_Vec_Joy_Mux_1_Y                vec_ram_dpc8_1.c
+          0021  _dp_Vec_Joy_Mux_2_X                vec_ram_dpc8_1.c
+ASxxxx Linker V05.00,  page 14.
+Hexidecimal  [16-Bits]
+[ Bank == page_00 ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+direct                     0000        0100 =         256. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          0022  _dp_Vec_Joy_Mux_2_Y                vec_ram_dpc8_1.c
+          0023  _dp_Vec_Misc_Count                 vec_ram_dpc8_0.c
+          0024  _dp_Vec_0Ref_Enable                vec_ram_dpc8_0.c
+          0025  _dp_Vec_Loop_Count                 vec_ram_dpc8_0.c
+          0025  _dp_Vec_Loop_Count_hi              vec_ram_dpc8_1.c
+          0026  _dp_Vec_Loop_Count_lo              vec_ram_dpc8_1.c
+          0026  _dp_Vec_Music_9                    vec_rom_dpff_0.c
+          0027  _dp_Vec_Brightness                 vec_ram_dpc8_0.c
+          0028  _dp_Vec_Dot_Dwell                  vec_ram_dpc8_0.c
+          0028  _dp_Vec_ADSR_FADE1                 vec_rom_dpfe_0.c
+          0029  _dp_Vec_Pattern                    vec_ram_dpc8_0.c
+          002A  _dp_Vec_Text_HW                    vec_ram_dpc8_0.c
+          002A  _dp_Vec_Text_Height                vec_ram_dpc8_1.c
+          002B  _dp_Vec_Text_Width                 vec_ram_dpc8_1.c
+          002C  _dp_Vec_Str_Ptr                    vec_ram_dpc8_0.c
+          002E  _dp_Vec_counters                   vec_ram_dpc8_0.c
+          002E  _dp_Vec_Counter_1                  vec_ram_dpc8_1.c
+          002E  _dp_Vec_Counters                   vec_ram_dpc8_2.c
+          002F  _dp_Vec_Counter_2                  vec_ram_dpc8_1.c
+          0030  _dp_Vec_Counter_3                  vec_ram_dpc8_1.c
+          0031  _dp_Vec_Counter_4                  vec_ram_dpc8_1.c
+          0032  _dp_Vec_Counter_5                  vec_ram_dpc8_1.c
+          0033  _dp_Vec_Counter_6                  vec_ram_dpc8_1.c
+          0034  _dp_Vec_RiseRun_Tmp                vec_ram_dpc8_0.c
+          0036  _dp_Vec_Angle                      vec_ram_dpc8_0.c
+          0037  _dp_Vec_Run_Index                  vec_ram_dpc8_0.c
+          0038  _dp_Vec_Music_5                    vec_rom_dpfe_0.c
+          0039  _dp_Vec_Rise_Index                 vec_ram_dpc8_0.c
+          0039  _dp_Vec_XXX_00                     vec_ram_dpc8_1.c
+          003B  _dp_Vec_RiseRun_Len                vec_ram_dpc8_0.c
+          003B  _dp_Vec_XXX_01                     vec_ram_dpc8_1.c
+          003C  _dp_Vec_XXX_02                     vec_ram_dpc8_0.c
+          003D  _dp_Vec_Rfrsh                      vec_ram_dpc8_0.c
+          003D  _dp_Vec_Rfrsh_lo                   vec_ram_dpc8_1.c
+          003E  _dp_Vec_Rfrsh_hi                   vec_ram_dpc8_1.c
+          003F  _dp_Vec_Music_Work                 vec_ram_dpc8_0.c
+          0042  _dp_Vec_Music_Wk_A                 vec_ram_dpc8_0.c
+          0043  _dp_Vec_XXX_03                     vec_ram_dpc8_0.c
+          0044  _dp_Vec_XXX_04                     vec_ram_dpc8_0.c
+          0044  _dp_Vec_Music_a                    vec_rom_dpff_0.c
+          0045  _dp_Vec_Music_Wk_7                 vec_ram_dpc8_0.c
+          0046  _dp_Vec_Music_Wk_6                 vec_ram_dpc8_0.c
+          0047  _dp_Vec_Music_Wk_5                 vec_ram_dpc8_0.c
+          0048  _dp_Vec_XXX_05                     vec_ram_dpc8_0.c
+          0049  _dp_Vec_XXX_06                     vec_ram_dpc8_0.c
+          004A  _dp_Vec_XXX_07                     vec_ram_dpc8_0.c
+          004B  _dp_Vec_Music_Wk_1                 vec_ram_dpc8_0.c
+          004C  _dp_Vec_XXX_08                     vec_ram_dpc8_0.c
+          004D  _dp_Vec_Freq_Table                 vec_ram_dpc8_0.c
+          004F  _dp_Vec_ADSR_Table                 vec_ram_dpc8_0.c
+ASxxxx Linker V05.00,  page 15.
+Hexidecimal  [16-Bits]
+[ Bank == page_00 ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+direct                     0000        0100 =         256. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          004F  _dp_Vec_Max_Players                vec_ram_dpc8_1.c
+          0050  _dp_Vec_Max_Games                  vec_ram_dpc8_1.c
+          0051  _dp_Vec_Twang_Table                vec_ram_dpc8_0.c
+          0053  _dp_Vec_Music_Ptr                  vec_ram_dpc8_0.c
+          0053  _dp_Vec_Expl_ChanA                 vec_ram_dpc8_1.c
+          0054  _dp_Vec_Expl_Chans                 vec_ram_dpc8_1.c
+          0055  _dp_Vec_Music_Chan                 vec_ram_dpc8_0.c
+          0056  _dp_Vec_Music_Flag                 vec_ram_dpc8_0.c
+          0057  _dp_Vec_Duration                   vec_ram_dpc8_0.c
+          0058  _dp_Vec_Expl_1                     vec_ram_dpc8_0.c
+          0058  _dp_Vec_Music_Twang                vec_ram_dpc8_1.c
+          0059  _dp_Vec_Expl_2                     vec_ram_dpc8_0.c
+          005A  _dp_Vec_Expl_3                     vec_ram_dpc8_0.c
+          005B  _dp_Vec_Expl_4                     vec_ram_dpc8_0.c
+          005C  _dp_Vec_Expl_Chan                  vec_ram_dpc8_0.c
+          005D  _dp_Vec_Expl_ChanB                 vec_ram_dpc8_0.c
+          005E  _dp_Vec_ADSR_timers                vec_ram_dpc8_0.c
+          005E  _dp_Vec_ADSR_Timers                vec_ram_dpc8_1.c
+          005E  _dp_Vec_XXX_09                     vec_ram_dpc8_2.c
+          0061  _dp_Vec_Music_freq                 vec_ram_dpc8_0.c
+          0061  _dp_Vec_Music_Freq                 vec_ram_dpc8_1.c
+          0062  _dp_Vec_Music_b                    vec_rom_dpff_0.c
+          0066  _dp_Vec_ADSR_FADE2                 vec_rom_dpfe_0.c
+          0067  _dp_Vec_Expl_Flag                  vec_ram_dpc8_0.c
+          0068  _dp_Vec_XXX_10                     vec_ram_dpc8_0.c
+          0069  _dp_Vec_XXX_11                     vec_ram_dpc8_0.c
+          0069  _dp_Vec_ADSR_FADE0                 vec_rom_dpfd_0.c
+          006A  _dp_Vec_XXX_12                     vec_ram_dpc8_0.c
+          006B  _dp_Vec_XXX_13                     vec_ram_dpc8_0.c
+          006C  _dp_Vec_XXX_14                     vec_ram_dpc8_0.c
+          006D  _dp_Vec_XXX_15                     vec_ram_dpc8_0.c
+          006D  _dp_Vec_Sine_Table                 vec_rom_dpfc_0.c
+          006E  _dp_Vec_XXX_16                     vec_ram_dpc8_0.c
+          006F  _dp_Vec_XXX_17                     vec_ram_dpc8_0.c
+          0070  _dp_Vec_XXX_18                     vec_ram_dpc8_0.c
+          0071  _dp_Vec_XXX_19                     vec_ram_dpc8_0.c
+          0072  _dp_Vec_XXX_20                     vec_ram_dpc8_0.c
+          0073  _dp_Vec_XXX_21                     vec_ram_dpc8_0.c
+          0074  _dp_Vec_XXX_22                     vec_ram_dpc8_0.c
+          0075  _dp_Vec_XXX_23                     vec_ram_dpc8_0.c
+          0076  _dp_Vec_XXX_24                     vec_ram_dpc8_0.c
+          0076  _dp_Vec_Music_6                    vec_rom_dpfe_0.c
+          0077  _dp_Vec_Expl_Timer                 vec_ram_dpc8_0.c
+          0077  _dp_Vec_Music_0                    vec_rom_dped_0.c
+          0078  _dp_Vec_XXX_25                     vec_ram_dpc8_0.c
+          0079  _dp_Vec_Num_Players                vec_ram_dpc8_0.c
+          0079  _dp_Vec_TWANG_VIBE0                vec_rom_dpfd_0.c
+          007A  _dp_Vec_Num_Game                   vec_ram_dpc8_0.c
+          007A  _dp_Vec_Music_c                    vec_rom_dpff_0.c
+          007B  _dp_Vec_Seed_Ptr                   vec_ram_dpc8_0.c
+ASxxxx Linker V05.00,  page 16.
+Hexidecimal  [16-Bits]
+[ Bank == page_00 ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+direct                     0000        0100 =         256. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          007D  _dp_Vec_Random_Seed0               vec_ram_dpc8_0.c
+          007D  _dp_Vec_Random_Seed                vec_ram_dpc8_1.c
+          007D  _dp_Vec_Cosine_Table               vec_rom_dpfc_0.c
+          007E  _dp_Vec_Random_Seed1               vec_ram_dpc8_0.c
+          007F  _dp_Vec_Random_Seed2               vec_ram_dpc8_0.c
+          0081  _dp_Vec_Music_3                    vec_rom_dpfd_0.c
+          008D  _dp_Vec_Note_Table                 vec_rom_dpfc_0.c
+          008F  _dp_Vec_ADSR_FADE66                vec_rom_dped_0.c
+          008F  _dp_Vec_Music_d                    vec_rom_dpff_0.c
+          00B2  _dp_Vec_ADSR_FADE3                 vec_rom_dpfe_0.c
+          00B6  _dp_Vec_TWANG_VIBEHL               vec_rom_dpfe_0.c
+          00B6  _dp_Vec_TWANG_VIBENL               vec_rom_dpfe_1.c
+          00C3  _dp_Vec_ADSR_FADE12                vec_rom_dpfd_0.c
+          00C6  _dp_Vec_Music_7                    vec_rom_dpfe_0.c
+          00D3  _dp_Vec_Music_4                    vec_rom_dpfd_0.c
+          00E8  _dp_Vec_ADSR_FADE4                 vec_rom_dpfe_0.c
+          00EA  _dp_Vec_Default_Stk                vec_ram_dpcb_0.c
+          00EB  _dp_Vec_High_Score                 vec_ram_dpcb_0.c
+          00EB  _dp_Vec_High_score                 vec_ram_dpcb_1.c
+          00F2  _dp_Vec_SWI3_Vector                vec_ram_dpcb_0.c
+          00F2  _dp_Vec_SWI3_vector                vec_ram_dpcb_1.c
+          00F2  _dp_Vec_SWI2_Vector                vec_ram_dpcb_2.c
+          00F2  _dp_Vec_SWI2_vector                vec_ram_dpcb_3.c
+          00F5  _dp_Vec_FIRQ_Vector                vec_ram_dpcb_0.c
+          00F5  _dp_Vec_FIRQ_vector                vec_ram_dpcb_1.c
+          00F8  _dp_Vec_IRQ_Vector                 vec_ram_dpcb_0.c
+          00F8  _dp_Vec_IRQ_vector                 vec_ram_dpcb_1.c
+          00F8  _dp_Vec_Music_8                    vec_rom_dpfe_0.c
+          00FB  _dp_Vec_SWI_Vector                 vec_ram_dpcb_0.c
+          00FB  _dp_Vec_SWI_vector                 vec_ram_dpcb_1.c
+          00FB  _dp_Vec_NWI_Vector                 vec_ram_dpcb_2.c
+          00FB  _dp_Vec_NWI_vector                 vec_ram_dpcb_3.c
+          00FE  _dp_Vec_Cold_Flag                  vec_ram_dpcb_0.c
+
+ASxxxx Linker V05.00,  page 17.
+Hexidecimal  [16-Bits]
+[ Bank == page_ed ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.dped                      ED77        0019 =          25. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          ED77  _Vec_Music_0                       vec_rom_0xed_0.c
+          ED8F  _Vec_ADSR_FADE66                   vec_rom_0xed_0.c
+
+ASxxxx Linker V05.00,  page 18.
+Hexidecimal  [16-Bits]
+[ Bank == page_fc ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.dpfc                      FC6D        0021 =          33. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          FC6D  _Vec_Sine_Table                    vec_rom_0xfc_0.c
+          FC7D  _Vec_Cosine_Table                  vec_rom_0xfc_0.c
+          FC8D  _Vec_Note_Table                    vec_rom_0xfc_0.c
+
+ASxxxx Linker V05.00,  page 19.
+Hexidecimal  [16-Bits]
+[ Bank == page_fd ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.dpfd                      FD0D        00C7 =         199. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          FD0D  _Vec_Music_1                       vec_rom_0xfd_0.c
+          FD1D  _Vec_Music_2                       vec_rom_0xfd_0.c
+          FD69  _Vec_ADSR_FADE0                    vec_rom_0xfd_0.c
+          FD79  _Vec_TWANG_VIBE0                   vec_rom_0xfd_0.c
+          FD81  _Vec_Music_3                       vec_rom_0xfd_0.c
+          FDC3  _Vec_ADSR_FADE12                   vec_rom_0xfd_0.c
+          FDD3  _Vec_Music_4                       vec_rom_0xfd_0.c
+
+ASxxxx Linker V05.00,  page 20.
+Hexidecimal  [16-Bits]
+[ Bank == page_fe ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.dpfe                      FE28        00D1 =         209. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          FE28  _Vec_ADSR_FADE1                    vec_rom_0xfe_0.c
+          FE38  _Vec_Music_5                       vec_rom_0xfe_0.c
+          FE66  _Vec_ADSR_FADE2                    vec_rom_0xfe_0.c
+          FE76  _Vec_Music_6                       vec_rom_0xfe_0.c
+          FEB2  _Vec_ADSR_FADE3                    vec_rom_0xfe_0.c
+          FEB6  _Vec_TWANG_VIBEHL                  vec_rom_0xfe_0.c
+          FEB6  _Vec_TWANG_VIBENL                  vec_rom_0xfe_1.c
+          FEC6  _Vec_Music_7                       vec_rom_0xfe_0.c
+          FEE8  _Vec_ADSR_FADE4                    vec_rom_0xfe_0.c
+          FEF8  _Vec_Music_8                       vec_rom_0xfe_0.c
+
+ASxxxx Linker V05.00,  page 21.
+Hexidecimal  [16-Bits]
+[ Bank == page_ff ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.dpff                      FF16        007A =         122. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          FF16  _Vec_ADSR_FADE8                    vec_rom_0xff_0.c
+          FF26  _Vec_Music_9                       vec_rom_0xff_0.c
+          FF44  _Vec_Music_a                       vec_rom_0xff_0.c
+          FF62  _Vec_Music_b                       vec_rom_0xff_0.c
+          FF7A  _Vec_Music_c                       vec_rom_0xff_0.c
+          FF8F  _Vec_Music_d                       vec_rom_0xff_0.c
+
+ASxxxx Linker V05.00,  page 22.
+Hexidecimal  [16-Bits]
+[ Bank == page_e7 ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.0xe7                      E7B5        001E =          30. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          E7B5  ___Displ8_xy                       vec_rum_0xe7.c
+          E7D2  ___Displ16_xy                      vec_rum_0xe7.c
+
+ASxxxx Linker V05.00,  page 23.
+Hexidecimal  [16-Bits]
+[ Bank == page_e9 ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.0xe9                      E98A        0002 =           2. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          E98A  ___Ranpos                          vec_rum_0xe9.c
+
+ASxxxx Linker V05.00,  page 24.
+Hexidecimal  [16-Bits]
+[ Bank == page_ea ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.0xea                      EA3E        00B3 =         179. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          EA3E  ___Rnd_Cone                        vec_rum_0xea.c
+          EA5D  ___Dot_y                           vec_rum_0xea.c
+          EA6D  ___Dot_py                          vec_rum_0xea.c
+          EA7F  ___Draw_Pack                       vec_rum_0xea.c
+          EA8D  ___Draw_Pack_py                    vec_rum_0xea.c
+          EAA8  ___Print_Msg                       vec_rum_0xea.c
+          EAB4  ___Draw_Score                      vec_rum_0xea.c
+          EACF  ___Draw_Scores                     vec_rum_0xea.c
+          EAF0  ___Wait_Bound                      vec_rum_0xea.c
+
+ASxxxx Linker V05.00,  page 25.
+Hexidecimal  [16-Bits]
+[ Bank == page_f0 ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.0xf0                      F000        0001 =           1. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          F000  ___Reset                           vec_rum_0xf0.c
+
+ASxxxx Linker V05.00,  page 26.
+Hexidecimal  [16-Bits]
+[ Bank == page_f1 ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.0xf1                      F14C        00AD =         173. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          F14C  ___Init_VIA                        vec_rum_0xf1.c
+          F164  ___Init_OS_RAM                     vec_rum_0xf1.c
+          F18B  ___Init_OS                         vec_rum_0xf1.c
+          F192  ___Wait_Recal                      vec_rum_0xf1.c
+          F1AA  ___DP_to_D0                        vec_rum_0xf1.c
+          F1AF  ___DP_to_C8                        vec_rum_0xf1.c
+          F1B4  ___Read_Btns_Mask                  vec_rum_0xf1.c
+          F1BA  ___Read_Btns                       vec_rum_0xf1.c
+          F1F5  ___Joy_Analog                      vec_rum_0xf1.c
+          F1F8  ___Joy_Digital                     vec_rum_0xf1.c
+
+ASxxxx Linker V05.00,  page 27.
+Hexidecimal  [16-Bits]
+[ Bank == page_f2 ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.0xf2                      F256        00A7 =         167. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          F256  ___Sound_Byte                      vec_rum_0xf2.c
+          F259  ___Sound_Byte_x                    vec_rum_0xf2.c
+          F272  ___Clear_Sound                     vec_rum_0xf2.c
+          F27D  ___Sound_Bytes                     vec_rum_0xf2.c
+          F284  ___Sound_Bytes_x                   vec_rum_0xf2.c
+          F289  ___Do_Sound                        vec_rum_0xf2.c
+          F28C  ___Do_Sound_x                      vec_rum_0xf2.c
+          F29D  ___Intensity_1F                    vec_rum_0xf2.c
+          F2A1  ___Intensity_3F                    vec_rum_0xf2.c
+          F2A5  ___Intensity_5F                    vec_rum_0xf2.c
+          F2A9  ___Intensity_7F                    vec_rum_0xf2.c
+          F2AB  ___Intensity_a                     vec_rum_0xf2.c
+          F2BE  ___Dot_ix_b                        vec_rum_0xf2.c
+          F2C1  ___Dot_ix                          vec_rum_0xf2.c
+          F2C3  ___Dot_d                           vec_rum_0xf2.c
+          F2C5  ___Dot_here                        vec_rum_0xf2.c
+          F2D5  ___Dot_List                        vec_rum_0xf2.c
+          F2DE  ___Dot_List_Reset                  vec_rum_0xf2.c
+          F2E6  ___Recalibrate                     vec_rum_0xf2.c
+          F2F2  ___Moveto_x_7F                     vec_rum_0xf2.c
+          F2FC  ___Moveto_d_7F                     vec_rum_0xf2.c
+
+ASxxxx Linker V05.00,  page 28.
+Hexidecimal  [16-Bits]
+[ Bank == page_f3 ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.0xf3                      F308        00D8 =         216. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          F308  ___Moveto_ix_FF                    vec_rum_0xf3.c
+          F30C  ___Moveto_ix_7F                    vec_rum_0xf3.c
+          F30E  ___Moveto_ix_b                     vec_rum_0xf3.c
+          F310  ___Moveto_ix                       vec_rum_0xf3.c
+          F312  ___Moveto_d                        vec_rum_0xf3.c
+          F34A  ___Reset0Ref_D0                    vec_rum_0xf3.c
+          F34F  ___Check0Ref                       vec_rum_0xf3.c
+          F354  ___Reset0Ref                       vec_rum_0xf3.c
+          F35B  ___Reset_Pen                       vec_rum_0xf3.c
+          F36B  ___Reset0Int                       vec_rum_0xf3.c
+          F373  ___Print_Str_hwyx                  vec_rum_0xf3.c
+          F378  ___Print_Str_yx                    vec_rum_0xf3.c
+          F37A  ___Print_Str_d                     vec_rum_0xf3.c
+          F385  ___Print_List_hw                   vec_rum_0xf3.c
+          F38A  ___Print_List                      vec_rum_0xf3.c
+          F38C  ___Print_List_chk                  vec_rum_0xf3.c
+          F391  ___Print_Ships_x                   vec_rum_0xf3.c
+          F393  ___Print_Ships                     vec_rum_0xf3.c
+          F3AD  ___Mov_Draw_VLc_a                  vec_rum_0xf3.c
+          F3B1  ___Mov_Draw_VL_b                   vec_rum_0xf3.c
+          F3B5  ___Mov_Draw_VLcs                   vec_rum_0xf3.c
+          F3B7  ___Mov_Draw_VL_ab                  vec_rum_0xf3.c
+          F3B9  ___Mov_Draw_VL_a                   vec_rum_0xf3.c
+          F3BC  ___Mov_Draw_VL                     vec_rum_0xf3.c
+          F3BE  ___Mov_Draw_VL_d                   vec_rum_0xf3.c
+          F3CE  ___Draw_VLc                        vec_rum_0xf3.c
+          F3D2  ___Draw_VL_b                       vec_rum_0xf3.c
+          F3D6  ___Draw_VLcs                       vec_rum_0xf3.c
+          F3D8  ___Draw_VL_ab                      vec_rum_0xf3.c
+          F3DA  ___Draw_VL_a                       vec_rum_0xf3.c
+          F3DD  ___Draw_VL                         vec_rum_0xf3.c
+          F3DF  ___Draw_Line_d                     vec_rum_0xf3.c
+ASxxxx Linker V05.00,  page 29.
+Hexidecimal  [16-Bits]
+[ Bank == page_f4 ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.0xf4                      F404        0095 =         149. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          F404  ___Draw_VLp_FF                     vec_rum_0xf4.c
+          F408  ___Draw_VLp_7F                     vec_rum_0xf4.c
+          F40C  ___Draw_VLp_scale                  vec_rum_0xf4.c
+          F40E  ___Draw_VLp_b                      vec_rum_0xf4.c
+          F410  ___Draw_VLp                        vec_rum_0xf4.c
+          F433  ___Draw_Pat_VL_aa                  vec_rum_0xf4.c
+          F434  ___Draw_Pat_VL_a                   vec_rum_0xf4.c
+          F437  ___Draw_Pat_VL                     vec_rum_0xf4.c
+          F439  ___Draw_Pat_VL_d                   vec_rum_0xf4.c
+          F46E  ___Draw_VL_mode                    vec_rum_0xf4.c
+          F495  ___Print_Str                       vec_rum_0xf4.c
+          F498  ___Print_MRast                     vec_rum_0xf4.c
+ASxxxx Linker V05.00,  page 30.
+Hexidecimal  [16-Bits]
+[ Bank == page_f5 ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.0xf5                      F511        00EF =         239. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          F511  ___Random_3                        vec_rum_0xf5.c
+          F517  ___Random                          vec_rum_0xf5.c
+          F533  ___Init_Music_Buf                  vec_rum_0xf5.c
+          F53F  ___Clear_x_b                       vec_rum_0xf5.c
+          F542  ___Clear_C8_RAM                    vec_rum_0xf5.c
+          F545  ___Clear_x_256                     vec_rum_0xf5.c
+          F548  ___Clear_x_d                       vec_rum_0xf5.c
+          F550  ___Clear_x_b_80                    vec_rum_0xf5.c
+          F552  ___Clear_x_b_a                     vec_rum_0xf5.c
+          F55A  ___Dec_3_Counters                  vec_rum_0xf5.c
+          F55E  ___Dec_6_Counters                  vec_rum_0xf5.c
+          F563  ___Dec_Counters                    vec_rum_0xf5.c
+          F56D  ___Delay_3                         vec_rum_0xf5.c
+          F571  ___Delay_2                         vec_rum_0xf5.c
+          F575  ___Delay_1                         vec_rum_0xf5.c
+          F579  ___Delay_0                         vec_rum_0xf5.c
+          F57A  ___Delay_b                         vec_rum_0xf5.c
+          F57D  ___Delay_RTS                       vec_rum_0xf5.c
+          F57E  ___Bitmask_a                       vec_rum_0xf5.c
+          F584  ___Abs_a_b                         vec_rum_0xf5.c
+          F58B  ___Abs_b                           vec_rum_0xf5.c
+          F593  ___Rise_Run_Angle                  vec_rum_0xf5.c
+          F5D9  ___Get_Rise_Idx                    vec_rum_0xf5.c
+          F5DB  ___Xform_Sin                       vec_rum_0xf5.c
+          F5EF  ___Get_Rise_Run                    vec_rum_0xf5.c
+          F5FF  ___Rise_Run_X                      vec_rum_0xf5.c
+
+ASxxxx Linker V05.00,  page 31.
+Hexidecimal  [16-Bits]
+[ Bank == page_f6 ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.0xf6                      F601        0092 =         146. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          F601  ___Rise_Run_Y                      vec_rum_0xf6.c
+          F603  ___Rise_Run_Len                    vec_rum_0xf6.c
+          F610  ___Rot_VL_ab                       vec_rum_0xf6.c
+          F613  ___Rot_VL_Diff                     vec_rum_0xf6.c
+          F616  ___Rot_VL                          vec_rum_0xf6.c
+          F61F  ___Rot_VL_Mode                     vec_rum_0xf6.c
+          F622  ___Rot_VL_Pack                     vec_rum_0xf6.c
+          F62B  ___Rot_VL_M_dft                    vec_rum_0xf6.c
+          F65B  ___Xform_Run_a                     vec_rum_0xf6.c
+          F65D  ___Xform_Run                       vec_rum_0xf6.c
+          F661  ___Xform_Rise_a                    vec_rum_0xf6.c
+          F663  ___Xform_Rise                      vec_rum_0xf6.c
+          F67F  ___Move_Mem_a_1                    vec_rum_0xf6.c
+          F683  ___Move_Mem_a                      vec_rum_0xf6.c
+          F687  ___Init_Music_chk                  vec_rum_0xf6.c
+          F68D  ___Init_Music                      vec_rum_0xf6.c
+          F690  ___Init_Music_a                    vec_rum_0xf6.c
+          F692  ___Init_Music_x                    vec_rum_0xf6.c
+
+ASxxxx Linker V05.00,  page 32.
+Hexidecimal  [16-Bits]
+[ Bank == page_f7 ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.0xf7                      F742        0068 =         104. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          F742  ___Stop_Sound                      vec_rum_0xf7.c
+          F7A9  ___Select_Game                     vec_rum_0xf7.c
+
+ASxxxx Linker V05.00,  page 33.
+Hexidecimal  [16-Bits]
+[ Bank == page_f8 ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.0xf8                      F835        00CB =         203. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          F835  ___Display_Option                  vec_rum_0xf8.c
+          F84F  ___Clear_Score                     vec_rum_0xf8.c
+          F85E  ___Add_Score_a                     vec_rum_0xf8.c
+          F87C  ___Add_Score_d                     vec_rum_0xf8.c
+          F8B7  ___Strip_Zeros                     vec_rum_0xf8.c
+          F8C7  ___Compare_Score                   vec_rum_0xf8.c
+          F8D8  ___New_High_Score                  vec_rum_0xf8.c
+          F8E5  ___Obj_Will_Hit_u                  vec_rum_0xf8.c
+          F8F3  ___Obj_Will_Hit                    vec_rum_0xf8.c
+          F8FF  ___Obj_Hit                         vec_rum_0xf8.c
+
+ASxxxx Linker V05.00,  page 34.
+Hexidecimal  [16-Bits]
+[ Bank == page_f9 ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.0xf9                      F92E        009D =         157. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          F92E  ___Explosion_Snd                   vec_rum_0xf9.c
+          F9CA  ___Set_Amp                         vec_rum_0xf9.c
+
+ASxxxx Linker V05.00,  page 35.
+
+Files Linked                              [ module(s) ]
+
+..\..\gcc6809\vectrex\lib\crt0.rel        [ crt0.c ]
+..\..\gcc6809\vectrex\lib\gcc.rel         [ gcc.c ]
+..\..\gcc6809\vectrex\lib\vec_ram_0xc8_0  [ vec_ram_0xc8_0.c ]
+..\..\gcc6809\vectrex\lib\vec_ram_0xc8_1  [ vec_ram_0xc8_1.c ]
+..\..\gcc6809\vectrex\lib\vec_ram_0xc8_2  [ vec_ram_0xc8_2.c ]
+..\..\gcc6809\vectrex\lib\vec_ram_0xcb_0  [ vec_ram_0xcb_0.c ]
+..\..\gcc6809\vectrex\lib\vec_ram_0xcb_1  [ vec_ram_0xcb_1.c ]
+..\..\gcc6809\vectrex\lib\vec_ram_0xcb_2  [ vec_ram_0xcb_2.c ]
+..\..\gcc6809\vectrex\lib\vec_ram_0xcb_3  [ vec_ram_0xcb_3.c ]
+..\..\gcc6809\vectrex\lib\vec_ram_0xd0_0  [ vec_ram_0xd0_0.c ]
+..\..\gcc6809\vectrex\lib\vec_ram_0xd0_1  [ vec_ram_0xd0_1.c ]
+..\..\gcc6809\vectrex\lib\vec_ram_dpc8_0  [ vec_ram_dpc8_0.c ]
+..\..\gcc6809\vectrex\lib\vec_ram_dpc8_1  [ vec_ram_dpc8_1.c ]
+..\..\gcc6809\vectrex\lib\vec_ram_dpc8_2  [ vec_ram_dpc8_2.c ]
+..\..\gcc6809\vectrex\lib\vec_ram_dpcb_0  [ vec_ram_dpcb_0.c ]
+..\..\gcc6809\vectrex\lib\vec_ram_dpcb_1  [ vec_ram_dpcb_1.c ]
+..\..\gcc6809\vectrex\lib\vec_ram_dpcb_2  [ vec_ram_dpcb_2.c ]
+..\..\gcc6809\vectrex\lib\vec_ram_dpcb_3  [ vec_ram_dpcb_3.c ]
+..\..\gcc6809\vectrex\lib\vec_ram_dpd0_0  [ vec_ram_dpd0_0.c ]
+..\..\gcc6809\vectrex\lib\vec_ram_dpd0_1  [ vec_ram_dpd0_1.c ]
+..\..\gcc6809\vectrex\lib\vec_rom_0xed_0  [ vec_rom_0xed_0.c ]
+..\..\gcc6809\vectrex\lib\vec_rom_0xfc_0  [ vec_rom_0xfc_0.c ]
+..\..\gcc6809\vectrex\lib\vec_rom_0xfd_0  [ vec_rom_0xfd_0.c ]
+..\..\gcc6809\vectrex\lib\vec_rom_0xfe_0  [ vec_rom_0xfe_0.c ]
+..\..\gcc6809\vectrex\lib\vec_rom_0xfe_1  [ vec_rom_0xfe_1.c ]
+..\..\gcc6809\vectrex\lib\vec_rom_0xff_0  [ vec_rom_0xff_0.c ]
+..\..\gcc6809\vectrex\lib\vec_rom_dped_0  [ vec_rom_dped_0.c ]
+..\..\gcc6809\vectrex\lib\vec_rom_dpfc_0  [ vec_rom_dpfc_0.c ]
+..\..\gcc6809\vectrex\lib\vec_rom_dpfd_0  [ vec_rom_dpfd_0.c ]
+..\..\gcc6809\vectrex\lib\vec_rom_dpfe_0  [ vec_rom_dpfe_0.c ]
+..\..\gcc6809\vectrex\lib\vec_rom_dpfe_1  [ vec_rom_dpfe_1.c ]
+..\..\gcc6809\vectrex\lib\vec_rom_dpff_0  [ vec_rom_dpff_0.c ]
+..\..\gcc6809\vectrex\lib\vec_rum_0xe7.r  [ vec_rum_0xe7.c ]
+..\..\gcc6809\vectrex\lib\vec_rum_0xe9.r  [ vec_rum_0xe9.c ]
+..\..\gcc6809\vectrex\lib\vec_rum_0xea.r  [ vec_rum_0xea.c ]
+..\..\gcc6809\vectrex\lib\vec_rum_0xf0.r  [ vec_rum_0xf0.c ]
+..\..\gcc6809\vectrex\lib\vec_rum_0xf1.r  [ vec_rum_0xf1.c ]
+..\..\gcc6809\vectrex\lib\vec_rum_0xf2.r  [ vec_rum_0xf2.c ]
+..\..\gcc6809\vectrex\lib\vec_rum_0xf3.r  [ vec_rum_0xf3.c ]
+..\..\gcc6809\vectrex\lib\vec_rum_0xf4.r  [ vec_rum_0xf4.c ]
+..\..\gcc6809\vectrex\lib\vec_rum_0xf5.r  [ vec_rum_0xf5.c ]
+..\..\gcc6809\vectrex\lib\vec_rum_0xf6.r  [ vec_rum_0xf6.c ]
+..\..\gcc6809\vectrex\lib\vec_rum_0xf7.r  [ vec_rum_0xf7.c ]
+..\..\gcc6809\vectrex\lib\vec_rum_0xf8.r  [ vec_rum_0xf8.c ]
+..\..\gcc6809\vectrex\lib\vec_rum_0xf9.r  [ vec_rum_0xf9.c ]
+..\..\gcc6809\vectrex\lib\vec_rum_fct_pj  [ vec_rum_fct_pjc.c ]
+.\build\lib\cartridge.rel                 [ cartridge.c ]
+.\build\lib\collision.rel                 [ collision.c ]
+.\build\lib\debug.rel                     [ debug.c ]
+.\build\lib\game.rel                      [ game.c ]
+.\build\lib\level.rel                     [ level.c ]
+.\build\lib\main.rel                      [ main.c ]
+.\build\lib\math.rel                      [ math.c ]
+.\build\lib\print.rel                     [ print.c ]
+.\build\lib\sound.rel                     [ sound.c ]
+.\build\lib\utils.rel                     [ utils.c ]
+
+
+Libraries Linked                          [ object file ]
+
+..\..\gcc6809\lib\as-libgcc.a             [ ./libgcc-cache/_umodhi3.o ]
+..\..\gcc6809\lib\as-libgcc.a             [ ./libgcc-cache/_udivhi3.o ]
+..\..\gcc6809\lib\as-libgcc.a             [ ./libgcc-cache/_euclid.o ]
+
+
+

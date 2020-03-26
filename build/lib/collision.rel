@@ -1,0 +1,39 @@
+XH2
+H 3 areas 2 global symbols 2 banks 1 modes
+M collision.c
+G 00 00 80 81 82 83 84 85 86 87 88 89 8A 8B 8C 8D 8E 8F
+B _CSEG base 0 size 0 map 0 flags 0
+B _DSEG base 0 size 0 map 0 flags 4 fsfx _DS
+S .__.ABS. Def0000
+A _CODE size 0 flags CC80 bank 0
+A _DATA size 0 flags CCC0 bank 1
+A .text size 4F flags D00
+S _check_collision Def0000
+T 00 00
+R 00 00 00 02
+T 00 00 32 7D E7 61 6F 62 E6 61 E1 66 2C 0C E6
+R 00 00 00 02
+T 00 0D 66 E0 61 E1 68 22 0E 6C 62 20 0A
+R 00 00 00 02
+T 00 18
+R 00 00 00 02
+T 00 18 E6 61 E0 66 E1 68 22 02 6C 62
+R 00 00 00 02
+T 00 22
+R 00 00 00 02
+T 00 22 E6 65 E1 67 2C 0C E6 67 E0 65 E1 69 22
+R 00 00 00 02
+T 00 2F 0E 6C 62 20 0A
+R 00 00 00 02
+T 00 34
+R 00 00 00 02
+T 00 34 E6 65 E0 67 E1 69 22 02 6C 62
+R 00 00 00 02
+T 00 3E
+R 00 00 00 02
+T 00 3E 6F E4 E6 62 C1 02 26 04 C6 01 E7 E4
+R 00 00 00 02
+T 00 4A
+R 00 00 00 02
+T 00 4A E6 E4 32 63 39
+R 00 00 00 02
