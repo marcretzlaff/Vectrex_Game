@@ -1,52 +1,35 @@
 // ***************************************************************************
-// level
+// player
 // ***************************************************************************
 
+#pragma once
 #include <vectrex.h>
-#include "utils/utils.h"
-#include "game.h"
-#include "level.h"
-#include "player.h"
 
 // ---------------------------------------------------------------------------
 
-struct level_t current_level =
+enum player_status_t
 {
-	.status = LEVEL_LOST,
+	DEAD,
+	ALIVE,
 };
 
 // ---------------------------------------------------------------------------
 
-void level_init()
+struct player_t
 {
-	current_level.status = LEVEL_PLAY;
-}	
+	enum player_status_t status;	// player status
+	int y;							// y coordinate byte
+	int x;							// x coordinate byte
+};
 
 // ---------------------------------------------------------------------------
 
-void level_play(void)
-{
-	init_player();
-	while(current_level.status == LEVEL_PLAY)
-	{
-		// game loop header start - do not change
-		DP_to_C8();
-		Explosion_Snd(current_explosion);
-		Init_Music_chk(current_music);
-		Wait_Recal();
-		Do_Sound();
-		Intensity_5F();
-		// game loop header end
+extern struct player_t player;
 
-		// frame start: this is where the action happens...
-		handle_player();
+// ---------------------------------------------------------------------------
 
-
-
-
-		// end of frame
-	}
-}	
+void init_player(void);
+void handle_player(void);
 
 // ***************************************************************************
 // end of file
