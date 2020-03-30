@@ -21,6 +21,15 @@ struct player_t player =
 	.jump = 0
 };
 
+
+
+typedef enum player_state_t
+{
+	FALL = 0,
+	TIMEOUT,
+	JUMP
+} player_state;
+
 // ---------------------------------------------------------------------------
 
 #undef SF
@@ -29,11 +38,10 @@ struct player_t player =
 
 const struct packet_t vectors_player[] =
 {
-	{MOVE, { -1 * SF, -2 * SF}}, //left board
-	{DRAW, { -1 * SF,  0 * SF}}, //left board down
+	{MOVE, { -3 * SF, -2 * SF}}, //left board
+	{DRAW, {  1 * SF,  0 * SF}}, //left board up
 	{DRAW, {  0 * SF,  4 * SF}}, //board bottom
-	{DRAW, {  1 * SF,  0 * SF}}, //right board up
-	{MOVE, { -1 * SF, -3 * SF}}, //goto left foot
+	{MOVE, {  0 * SF, -3 * SF}}, //goto left foot
 	{DRAW, {  1 * SF,  1 * SF}}, //left foot
 	{DRAW, { -1 * SF,  1 * SF}}, //right foot
 	{MOVE, {  1 * SF, -1 * SF}}, //goto waist
@@ -50,9 +58,7 @@ const struct packet_t vectors_player[] =
 };
 
 
-
-
-
+struct packet_t vectors_player_ram[sizeof(vectors_player)];
 
 // ---------------------------------------------------------------------------
 
@@ -61,8 +67,8 @@ void draw_player(void)
 	Reset0Ref();					// reset beam to center of screen
 	dp_VIA_t1_cnt_lo = 0x7f;		// set scaling factor for positioning
 	Moveto_d(player.y, player.x);	// move beam to object coordinates
-	dp_VIA_t1_cnt_lo = 0x22;		// set scalinf factor for drawing
-	Draw_VLp(&vectors_player);		// draw vector list
+	dp_VIA_t1_cnt_lo = 0x15;		// set scalinf factor for drawing
+	Draw_VLp(&vectors_player_ram);		// draw vector list
 }
 
 // ---------------------------------------------------------------------------
@@ -80,29 +86,48 @@ void init_player(void)
 
 void move_player(void)
 {
-	const int speed = 2;
+	const int speed = 1;
 	const int jumpmp = 6;
-	const int jump = 2;
-	const int timeoutmp = 5;
+	const int jump = 4;
+	const int timeout = 30;
+	static unsigned int rot = 64;
+	static player_state player_S= FALL;	
 	
-	//jump
-	if(player.jump) 
+	switch(player_S)
 	{
-		if(player.y < (127 - speed*jumpmp)) player.y += speed*jumpmp; //max height
-		else player.y = 127;
-		player.jump--;
-	}
-	else if(player.y > -127) player.y -= speed; //gravity, hitting floor -> dead
-	else player.status = DEAD; 
-	if(player.timeout) player.timeout--; //jump timeout
-	
-
-	check_joysticks();
-	//jump input
-	if (joystick_1_up() && (player.timeout == 0))
-	{
-		player.jump = speed * jump;
-		player.timeout = speed * timeoutmp;
+		case JUMP:
+			if(player.y < (127 - jumpmp)) player.y += jumpmp; //max height
+			else player.y = 127;
+			//rotating
+			if(rot <= (unsigned int)(64-jump)) rot += (unsigned int)jump;
+			Rot_VL_Mode(rot,&vectors_player,&vectors_player_ram);
+			
+			player.jump--;
+			if(player.jump == 0) player_S = FALL;
+			break;
+			
+		case TIMEOUT:
+			if( 0 == player.timeout ) player.timeout = timeout;
+			player.timeout--;
+			break;
+			
+		case FALL:
+			if(player.y > -127) player.y -= speed; //gravity, hitting floor -> dead
+			else player.status = DEAD; 
+			//rotating
+			if(rot > 54) rot -= 1;
+			Rot_VL_Mode(rot,&vectors_player,&vectors_player_ram);
+			//jump input
+			check_joysticks();
+			if (joystick_1_up())
+			{
+				player_S = JUMP;
+				player.jump = jump;
+			}
+			break;
+			
+		default:
+			break;
 	}
 }
 
