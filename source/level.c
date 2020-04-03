@@ -13,13 +13,20 @@
 struct level_t current_level =
 {
 	.status = LEVEL_LOST,
+	.count = 0,
+	.frame = 0,
 };
+
+extern int speed;
 
 // ---------------------------------------------------------------------------
 
 void level_init()
 {
 	current_level.status = LEVEL_PLAY;
+	current_level.count = 0;
+	current_level.frame = 0;
+	speed = 0;
 }	
 
 // ---------------------------------------------------------------------------
@@ -42,8 +49,7 @@ void level_play(void)
 		handle_player();
 
 
-
-
+		current_level.frame += 1;
 		// end of frame
 	}
 }	

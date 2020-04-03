@@ -1,38 +1,34 @@
 // ***************************************************************************
-// player
+// object
 // ***************************************************************************
 
-#pragma once
 #include <vectrex.h>
+#include "level.h"
+#include "object.h"
 
 // ---------------------------------------------------------------------------
 
-enum player_status_t
+void init_object(struct object_t* p)
 {
-	DEAD,
-	ALIVE,
-};
+	p->status = ACTIVE;
 
+	//random new hole to fly through
+	p->y = (int) (Random() & 0b01111111);
+	
+	
+	p->x = 120; //appears from right side of screen
+}
 // ---------------------------------------------------------------------------
 
-struct player_t
+void move_object(struct object_t* p)
 {
-	enum player_status_t status;	// player status
-    int y;
-	int x;
-	int timeout;
-	int jump;
-};
-
-// ---------------------------------------------------------------------------
-
-extern struct player_t player;
-
-// ---------------------------------------------------------------------------
-
-void init_player(void);
-void handle_player(void);
+	if (current_level.frame != 0)
+	{
+		(p->x)--;
+	}
+}
 
 // ***************************************************************************
 // end of file
 // ***************************************************************************
+

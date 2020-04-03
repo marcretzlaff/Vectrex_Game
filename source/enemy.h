@@ -1,37 +1,22 @@
 // ***************************************************************************
-// player
+// enemy
 // ***************************************************************************
 
 #pragma once
-#include <vectrex.h>
+#include "object.h"
 
 // ---------------------------------------------------------------------------
 
-enum player_status_t
-{
-	DEAD,
-	ALIVE,
-};
+#define MAX_ENEMIES 2
 
 // ---------------------------------------------------------------------------
 
-struct player_t
-{
-	enum player_status_t status;	// player status
-    int y;
-	int x;
-	int timeout;
-	int jump;
-};
+extern struct object_t enemies[MAX_ENEMIES];
 
 // ---------------------------------------------------------------------------
 
-extern struct player_t player;
-
-// ---------------------------------------------------------------------------
-
-void init_player(void);
-void handle_player(void);
+void init_enemies(void);
+void handle_enemies(void);
 
 // ***************************************************************************
 // end of file

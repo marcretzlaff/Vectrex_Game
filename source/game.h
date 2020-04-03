@@ -13,6 +13,7 @@ struct game_t
 	unsigned int lives;
 	unsigned int level;
 	unsigned int score;
+	unsigned int player;
 };
 
 // ---------------------------------------------------------------------------

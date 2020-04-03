@@ -17,7 +17,8 @@ struct game_t current_game =
 	.option_mode = 0,
 	.lives = 0,
 	.level = 0,
-	.score =  0
+	.score =  0,
+	.player = 0
 };
 
 // ---------------------------------------------------------------------------
@@ -87,8 +88,7 @@ void game_over(void)
 		Sync();
 		Intensity_5F();
 		print_string(0, -64, "GAME OVER\x80");
-		print_string(20, -100, "PLAYER\x80");
-		print_unsigned_int(20, 40, 1);
+		print_string(20, -87, "SILVER SURFER\x80");
 		Print_Ships(0x69, current_game.lives, 0xC0E2);
 		check_buttons();
 	}

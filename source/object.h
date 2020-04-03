@@ -1,5 +1,5 @@
 // ***************************************************************************
-// player
+// object
 // ***************************************************************************
 
 #pragma once
@@ -7,31 +7,27 @@
 
 // ---------------------------------------------------------------------------
 
-enum player_status_t
+enum status_t
 {
-	DEAD,
-	ALIVE,
+	ACTIVE,
+	INACTIVE,
 };
 
 // ---------------------------------------------------------------------------
 
-struct player_t
+struct object_t
 {
-	enum player_status_t status;	// player status
-    int y;
-	int x;
-	int timeout;
-	int jump;
+	enum status_t status;	// object status
+	int y;					// y coordinate byte
+	int x;					// x coordinate byte
+	int dy;					// delta y byte
+	int dx;					// delta x byte
 };
 
 // ---------------------------------------------------------------------------
 
-extern struct player_t player;
-
-// ---------------------------------------------------------------------------
-
-void init_player(void);
-void handle_player(void);
+void init_object(struct object_t* p);
+void move_object(struct object_t* p);
 
 // ***************************************************************************
 // end of file

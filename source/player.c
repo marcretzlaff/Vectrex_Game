@@ -16,24 +16,26 @@ struct player_t player =
 {
 	.status = DEAD,
 	.y = 0,
-	.x = -80,
+	.x = 0,
 	.timeout = 0,
 	.jump = 0
 };
 
-
-
 typedef enum player_state_t
 {
-	FALL = 0,
+	INIT_FALL = 0,
+	FALL,
+	INIT_TIMEOUT,
 	TIMEOUT,
 	JUMP
 } player_state;
 
+int speed = 1;
+
 // ---------------------------------------------------------------------------
 
 #undef SF
-#define SF 31
+#define SF 20
 
 
 const struct packet_t vectors_player[] =
@@ -58,7 +60,7 @@ const struct packet_t vectors_player[] =
 };
 
 
-struct packet_t vectors_player_ram[sizeof(vectors_player)];
+struct packet_t vectors_player_ram[sizeof(vectors_player) / sizeof(struct packet_t)];
 
 // ---------------------------------------------------------------------------
 
@@ -86,12 +88,11 @@ void init_player(void)
 
 void move_player(void)
 {
-	const int speed = 1;
 	const int jumpmp = 6;
-	const int jump = 4;
-	const int timeout = 30;
+	const int jump = 5;
+	const int timeout = 5;
 	static unsigned int rot = 64;
-	static player_state player_S= FALL;	
+	static player_state player_S= INIT_FALL;	
 	
 	switch(player_S)
 	{
@@ -103,20 +104,42 @@ void move_player(void)
 			Rot_VL_Mode(rot,&vectors_player,&vectors_player_ram);
 			
 			player.jump--;
-			if(player.jump == 0) player_S = FALL;
+			if(player.jump == 0) player_S = INIT_TIMEOUT;
 			break;
 			
+		case INIT_TIMEOUT:
+			player.timeout = timeout;
+			player_S = TIMEOUT;
+			break;	
+				
 		case TIMEOUT:
-			if( 0 == player.timeout ) player.timeout = timeout;
 			player.timeout--;
+			if(!(player.y < -127)) 
+			{
+				player.y -= 1;
+			} else player.status = DEAD;
+			if(!player.timeout) player_S = INIT_FALL;
 			break;
 			
+		case INIT_FALL:
+			speed = 1;
+			player_S = FALL;
+			break;
+		
 		case FALL:
-			if(player.y > -127) player.y -= speed; //gravity, hitting floor -> dead
-			else player.status = DEAD; 
+			if(!((long int)player.y - speed < -128)) 
+			{
+				player.y -= speed; //gravity, hitting floor -> dead
+				if ((current_level.frame % 10) == 0) speed += 1;
+			} else player.status = DEAD;
+			
+			
 			//rotating
-			if(rot > 54) rot -= 1;
-			Rot_VL_Mode(rot,&vectors_player,&vectors_player_ram);
+			if( (current_level.frame % 3) == 0 )
+			{
+				if(rot > 54) rot -= 1;
+				Rot_VL_Mode(rot,&vectors_player,&vectors_player_ram);
+			}
 			//jump input
 			check_joysticks();
 			if (joystick_1_up())
