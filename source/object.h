@@ -7,25 +7,16 @@
 
 // ---------------------------------------------------------------------------
 
-enum status_t
-{
-	ACTIVE,
-	INACTIVE,
-};
-
-// ---------------------------------------------------------------------------
-
 struct object_t
 {
-	enum status_t status;	// object status
-	int y;					// y coordinate byte
 	int x;					// x coordinate byte
-	int dy;					// delta y byte
-	int dx;					// delta x byte
+	int top;					// delta y byte
+	int bottom;					// delta x byte
 };
 
 // ---------------------------------------------------------------------------
-
+//player y, obstacle pointer
+int check_collision(int y0, struct object_t* ob);
 void init_object(struct object_t* p);
 void move_object(struct object_t* p);
 

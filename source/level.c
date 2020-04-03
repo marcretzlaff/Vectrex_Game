@@ -48,7 +48,6 @@ void level_play(void)
 		// frame start: this is where the action happens...
 		handle_player();
 
-
 		current_level.frame += 1;
 		// end of frame
 	}

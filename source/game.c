@@ -18,7 +18,8 @@ struct game_t current_game =
 	.lives = 0,
 	.level = 0,
 	.score =  0,
-	.player = 0
+	.player = 0,
+	.frame = 0
 };
 
 // ---------------------------------------------------------------------------
