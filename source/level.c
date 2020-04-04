@@ -7,6 +7,7 @@
 #include "game.h"
 #include "level.h"
 #include "player.h"
+#include "enemy.h"
 
 // ---------------------------------------------------------------------------
 
@@ -46,7 +47,8 @@ void level_play(void)
 		// game loop header end
 
 		// frame start: this is where the action happens...
-		handle_player();
+		//handle_player();
+		handle_enemies();
 
 		current_level.frame += 1;
 		// end of frame
