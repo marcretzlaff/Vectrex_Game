@@ -13,14 +13,14 @@ void init_object(struct object_t* p)
 	int rand;
 	//random new hole to fly through
 	rand = (int) Random();
-	if(rand > 95)
+	if(rand > 85)
 		p->top = 120;
 	else if(rand < -95)
-			p->top = -70;
+			p->top = -60;
 	else
-		p->top = rand + 25;
-	p->x = 0; //appears from right side of screen 110
-	p->activ = TRUE;
+		p->top = rand + 35;
+	p->x = 120; //appears from right side of screen 110
+	p->activ = 1;
 }
 // ---------------------------------------------------------------------------
 

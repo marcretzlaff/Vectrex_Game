@@ -80,7 +80,7 @@ void init_player(void)
 {
 	player.status = ALIVE;
 	player.y = 0;
-	player.x = -100;
+	player.x = -90;
 	player.timeout = 0;
 	player.jump = 0;
 }

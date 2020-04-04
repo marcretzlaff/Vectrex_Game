@@ -5,6 +5,10 @@
 #pragma once
 #include "object.h"
 
+#define OBSTACLES_COUNT 4
+
+struct object_t obstacles[OBSTACLES_COUNT];
+
 // ---------------------------------------------------------------------------
 
 void handle_enemies(void);

@@ -11,7 +11,7 @@ struct object_t
 {
 	int x;					// x coordinate byte
 	int top;					// delta y byte
-	bool activ;
+	int activ;
 };
 
 // ---------------------------------------------------------------------------

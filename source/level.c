@@ -9,6 +9,7 @@
 #include "player.h"
 #include "enemy.h"
 
+
 // ---------------------------------------------------------------------------
 
 struct level_t current_level =
@@ -24,10 +25,15 @@ extern int speed;
 
 void level_init()
 {
+	int i;
 	current_level.status = LEVEL_PLAY;
 	current_level.count = 0;
 	current_level.frame = 0;
 	speed = 0;
+	for(i = 0; i< OBSTACLES_COUNT; i++)
+	{
+		obstacles[i].activ = 0;
+	}
 }	
 
 // ---------------------------------------------------------------------------
@@ -47,7 +53,7 @@ void level_play(void)
 		// game loop header end
 
 		// frame start: this is where the action happens...
-		//handle_player();
+		handle_player();
 		handle_enemies();
 
 		current_level.frame += 1;
