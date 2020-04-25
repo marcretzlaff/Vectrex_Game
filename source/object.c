@@ -7,18 +7,22 @@
 #include "object.h"
 
 // ---------------------------------------------------------------------------
-
+int oldrand = 0;
+	
 void init_object(struct object_t* p)
 {
-	int rand;
+	long int rand;
 	//random new hole to fly through
-	rand = (int) Random();
+	rand =  (int) Random();
+	rand = rand % 50;
+	rand = oldrand + rand;
+	
 	if(rand > 85)
-		p->top = 120;
+		p->pos = 120;
 	else if(rand < -95)
-			p->top = -60;
+			p->pos = -60;
 	else
-		p->top = rand + 35;
+		p->pos = (int)rand + 35;
 	p->x = 120; //appears from right side of screen 110
 	p->activ = 1;
 }
@@ -38,11 +42,11 @@ int check_collision(int y0, struct object_t* ob)
 {
 	int hit = 0;
 	
-	if( (ob->x < -95) && (ob->x > -105) ) //x-plane violation width 10
+	if( (ob->x < -95) && (ob->x > -105) ) //x-plane violation width 10 
 	{
-		if( ((y0 + 7) < ob->top) && ((y0 - 7) > (ob->top - 50)) ) hit = 1; //y-plane violation 
+		if(!( ((y0 - 7) >  (ob->pos - 70)) && ((y0 + 7) < ob->pos) )) hit = 1; //y-plane violation 
 	}
-	return (int)hit;
+	return hit;
 }
 
 // ***************************************************************************

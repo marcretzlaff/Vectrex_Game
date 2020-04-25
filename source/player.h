@@ -13,6 +13,14 @@ enum player_status_t
 	ALIVE,
 };
 
+typedef enum player_state_t
+{
+	INIT_FALL = 0,
+	FALL,
+	INIT_TIMEOUT,
+	TIMEOUT,
+	JUMP
+} player_state;
 // ---------------------------------------------------------------------------
 
 struct player_t
@@ -22,6 +30,7 @@ struct player_t
 	int x;
 	int timeout;
 	int jump;
+	enum player_state_t player_S;
 };
 
 // ---------------------------------------------------------------------------

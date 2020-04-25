@@ -21,16 +21,6 @@ struct player_t player =
 	.timeout = 0,
 	.jump = 0
 };
-
-typedef enum player_state_t
-{
-	INIT_FALL = 0,
-	FALL,
-	INIT_TIMEOUT,
-	TIMEOUT,
-	JUMP
-} player_state;
-
 int speed = 1;
 
 // ---------------------------------------------------------------------------
@@ -83,7 +73,9 @@ void init_player(void)
 	player.x = -90;
 	player.timeout = 0;
 	player.jump = 0;
+	player.player_S = INIT_FALL;
 }
+
 
 // ---------------------------------------------------------------------------
 
@@ -93,9 +85,8 @@ void move_player(void)
 	const int jump = 5;
 	const int timeout = 5;
 	static unsigned int rot = 64;
-	static player_state player_S= INIT_FALL;	
 	
-	switch(player_S)
+	switch(player.player_S)
 	{
 		case JUMP:
 			if(player.y < (127 - jumpmp)) player.y += jumpmp; //max height
@@ -105,12 +96,12 @@ void move_player(void)
 			Rot_VL_Mode(rot,&vectors_player,&vectors_player_ram);
 			
 			player.jump--;
-			if(player.jump == 0) player_S = INIT_TIMEOUT;
+			if(player.jump == 0) player.player_S = INIT_TIMEOUT;
 			break;
 			
 		case INIT_TIMEOUT:
 			player.timeout = timeout;
-			player_S = TIMEOUT;
+			player.player_S = TIMEOUT;
 			break;	
 				
 		case TIMEOUT:
@@ -119,12 +110,12 @@ void move_player(void)
 			{
 				player.y -= 1;
 			} else player.status = DEAD;
-			if(!player.timeout) player_S = INIT_FALL;
+			if(!player.timeout) player.player_S = INIT_FALL;
 			break;
 			
 		case INIT_FALL:
 			speed = 1;
-			player_S = FALL;
+			player.player_S = FALL;
 			break;
 		
 		case FALL:
@@ -145,7 +136,7 @@ void move_player(void)
 			check_joysticks();
 			if (joystick_1_up())
 			{
-				player_S = JUMP;
+				player.player_S = JUMP;
 				player.jump = jump;
 			}
 			break;
@@ -165,6 +156,7 @@ void handle_player(void)
 	if (player.status == DEAD)
 	{
 		current_level.status = LEVEL_LOST;
+		player.player_S = INIT_FALL;
 	}
 }
 

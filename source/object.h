@@ -10,7 +10,7 @@
 struct object_t
 {
 	int x;					// x coordinate byte
-	int top;					// delta y byte
+	int pos;					// delta y byte
 	int activ;
 };
 

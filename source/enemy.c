@@ -41,7 +41,7 @@ void draw_enemy(struct object_t* p)
 	Moveto_d(127, p->x);		// move beam to object coordinates
 	dp_VIA_t1_cnt_lo = DRAWING_SPEED;	// set scalinf factor for drawing
 	//calculate vectors
-	temp = (127 - (long int)p->top);
+	temp = (127 - (long int)p->pos);
 	if(temp > 127)
 	{
 		vectors_obstacles[1] = (struct packet_t){DRAW,{ -(int)(temp % 127) * SF, 0}};
@@ -63,7 +63,7 @@ void draw_enemy(struct object_t* p)
 	Moveto_d(-128, p->x);		// move beam to object coordinates
 	dp_VIA_t1_cnt_lo = DRAWING_SPEED;	// set scalinf factor for drawing
 	//calculate vectors
-	temp = ((long int)p->top + 57); //-70 + 127
+	temp = ((long int)p->pos + 57); //-70 (width of hole "pos" -> top edge) + 127
 	if(temp > 127)
 	{
 		vectors_obstacles[1] = (struct packet_t){DRAW,{ (int)(temp % 127) * SF, 0}};
@@ -100,12 +100,14 @@ void handle_enemies(void)
 		{
 			move_object(&obstacles[i]);
 			draw_enemy(&obstacles[i]);
-			/*
 			if (check_collision(player.y, &obstacles[i]))
 			{
 				player.status = DEAD;
+				for( i = 0; i < OBSTACLES_COUNT; i++)
+				{
+					obstacles[i].activ = 0; 
+				}
 			}
-			*/
 		}
 	}
 }
