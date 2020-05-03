@@ -5,6 +5,7 @@
 #include <vectrex.h>
 #include "level.h"
 #include "object.h"
+#include "game.h"
 
 // ---------------------------------------------------------------------------
 int oldrand = 0;
@@ -30,10 +31,9 @@ void init_object(struct object_t* p)
 
 void move_object(struct object_t* p)
 {
-	if (current_level.frame != 0)
-	{
-		(p->x)--;
-	}
+	(p->x)--;
+	if( p->x == -90)
+		current_game.score++;
 }
 
 // ---------------------------------------------------------------------------

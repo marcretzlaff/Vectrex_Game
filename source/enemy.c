@@ -12,6 +12,7 @@
 #include "object.h"
 #include "level.h"
 #include "utils/math.h"
+#include "utils/sound.h"
 
 // ---------------------------------------------------------------------------
 
@@ -19,6 +20,11 @@
 #define SF 1
 
 #define DRAWING_SPEED 0x7f
+
+const struct sound_explosion_t bang =
+{
+	0b00101010, SOUND_EXPL_RISE, SOUND_VOL_RISE, 1U
+};
 
 struct packet_t vectors_obstacles[] =
 {
@@ -102,6 +108,7 @@ void handle_enemies(void)
 			draw_enemy(&obstacles[i]);
 			if (check_collision(player.y, &obstacles[i]))
 			{
+			    play_explosion(&bang);
 				player.status = DEAD;
 				for( i = 0; i < OBSTACLES_COUNT; i++)
 				{

@@ -8,7 +8,7 @@
 #include "level.h"
 #include "player.h"
 #include "enemy.h"
-
+#include "utils/print.h"
 
 // ---------------------------------------------------------------------------
 
@@ -51,7 +51,7 @@ void level_play(void)
 		Do_Sound();
 		Intensity_5F();
 		// game loop header end
-
+		print_unsigned_int(120, -100, current_game.score);
 		// frame start: this is where the action happens...
 		handle_player();
 		handle_enemies();

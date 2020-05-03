@@ -6,12 +6,22 @@
 #include "utils/controller.h"
 #include "utils/utils.h"
 #include "utils/vector.h"
+#include "utils/sound.h"
 #include "game.h"
 #include "level.h"
 #include "player.h"
 
 
 // ---------------------------------------------------------------------------
+const struct sound_music_t bing = 
+{
+	.adsr_table = (struct sound_adsr_table_t*) &Vec_ADSR_FADE8,
+	.twang_table = (struct sound_twang_table_t*) &Vec_TWANG_VIBE0,
+	{
+		0, 16,
+		0, 128
+	}
+};
 
 struct player_t player =
 {
@@ -136,6 +146,7 @@ void move_player(void)
 			check_joysticks();
 			if (joystick_1_up())
 			{
+				play_music(&bing);
 				player.player_S = JUMP;
 				player.jump = jump;
 			}
