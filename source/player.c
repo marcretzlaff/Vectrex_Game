@@ -15,10 +15,11 @@
 // ---------------------------------------------------------------------------
 const struct sound_music_t bing = 
 {
-	.adsr_table = (struct sound_adsr_table_t*) &Vec_ADSR_FADE8,
+	.adsr_table = (struct sound_adsr_table_t*) &Vec_ADSR_FADE4,
 	.twang_table = (struct sound_twang_table_t*) &Vec_TWANG_VIBE0,
 	{
-		0, 16,
+		0x20,8,
+		0x22,4,
 		0, 128
 	}
 };
@@ -119,7 +120,11 @@ void move_player(void)
 			if(!(player.y < -127)) 
 			{
 				player.y -= 1;
-			} else player.status = DEAD;
+			} else 
+			{
+				player.status = DEAD;
+				play_explosion(&bang);
+			}
 			if(!player.timeout) player.player_S = INIT_FALL;
 			break;
 			
