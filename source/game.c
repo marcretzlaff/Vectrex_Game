@@ -6,6 +6,7 @@
 #include "utils/controller.h"
 #include "utils/print.h"
 #include "utils/utils.h"
+#include "utils/random.h"
 #include "game.h"
 #include "level.h"
 
@@ -46,6 +47,8 @@ void game_init(void)
 	current_game.lives = 1; 
 	current_game.level = 1;
 	current_game.score = 0;
+	
+	init_my_rng(VIA_t2_hi,~VIA_t2_hi,VIA_t2_hi << 4);
 }
 
 // ---------------------------------------------------------------------------

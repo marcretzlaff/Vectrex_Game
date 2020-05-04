@@ -6,6 +6,7 @@
 #include "level.h"
 #include "object.h"
 #include "game.h"
+#include "utils/random.h"
 
 // ---------------------------------------------------------------------------
 int oldrand = 0;
@@ -14,7 +15,7 @@ void init_object(struct object_t* p)
 {
 	long int rand;
 	//random new hole to fly through
-	rand =  (int) Random();
+	rand =  (int) my_random();
 	rand = rand % 50;
 	rand = oldrand + rand;
 	
