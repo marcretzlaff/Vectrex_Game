@@ -12,7 +12,6 @@
 #include "object.h"
 #include "level.h"
 #include "utils/math.h"
-#include "utils/sound.h"
 
 // ---------------------------------------------------------------------------
 
@@ -20,11 +19,6 @@
 #define SF 1
 
 #define DRAWING_SPEED 0x7f
-
-const struct sound_explosion_t bang =
-{
-	0b00101010, SOUND_EXPL_RISE, SOUND_VOL_RISE, 1U
-};
 
 struct packet_t vectors_obstacles[] =
 {
@@ -90,17 +84,16 @@ void draw_enemy(struct object_t* p)
 
 void handle_enemies(void)
 {
-	static unsigned int iterator = OBSTACLES_COUNT-1;
 	int i;
 	
 	//create new obstacle if time to do so
-	if((current_level.frame % 65) == 0)
+	if((current_level.frame % level_const.pipe_space) == 0)
 	{
-		init_object(&obstacles[iterator]);
-		if(iterator-- == 0) iterator = OBSTACLES_COUNT-1;
+		init_object(&obstacles[level_const.obstacles_iterator]);
+		if(level_const.obstacles_iterator-- == 0) level_const.obstacles_iterator = level_const.obstacles_count - 1;
 	}
 	//handle all obstacles	
-	for( i = 0; i < OBSTACLES_COUNT; i++)
+	for( i = 0; i < level_const.obstacles_count; i++)
 	{ 
 		if(obstacles[i].activ)
 		{
@@ -110,7 +103,7 @@ void handle_enemies(void)
 			{
 			    play_explosion(&bang);
 				player.status = DEAD;
-				for( i = 0; i < OBSTACLES_COUNT; i++)
+				for( i = 0; i < level_const.obstacles_count; i++)
 				{
 					obstacles[i].activ = 0; 
 				}

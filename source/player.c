@@ -13,16 +13,6 @@
 
 
 // ---------------------------------------------------------------------------
-const struct sound_music_t bing = 
-{
-	.adsr_table = (struct sound_adsr_table_t*) &Vec_ADSR_FADE4,
-	.twang_table = (struct sound_twang_table_t*) &Vec_TWANG_VIBE0,
-	{
-		0x20,8,
-		0x22,4,
-		0, 128
-	}
-};
 
 struct player_t player =
 {
@@ -32,7 +22,6 @@ struct player_t player =
 	.timeout = 0,
 	.jump = 0
 };
-int speed = 1;
 
 // ---------------------------------------------------------------------------
 
@@ -92,18 +81,15 @@ void init_player(void)
 
 void move_player(void)
 {
-	const int jumpmp = 6;
-	const int jump = 5;
-	const int timeout = 5;
 	static unsigned int rot = 64;
 	
 	switch(player.player_S)
 	{
 		case JUMP:
-			if(player.y < (127 - jumpmp)) player.y += jumpmp; //max height
+			if(player.y < (127 - level_const.jumpmp)) player.y += level_const.jumpmp; //max height
 			else player.y = 127;
 			//rotating
-			if(rot <= (unsigned int)(64-jump)) rot += (unsigned int)jump;
+			if(rot <= (unsigned int)(64-level_const.jump)) rot += (unsigned int)level_const.jump;
 			Rot_VL_Mode(rot,&vectors_player,&vectors_player_ram);
 			
 			player.jump--;
@@ -111,7 +97,7 @@ void move_player(void)
 			break;
 			
 		case INIT_TIMEOUT:
-			player.timeout = timeout;
+			player.timeout = level_const.timeout;
 			player.player_S = TIMEOUT;
 			break;	
 				
@@ -129,17 +115,20 @@ void move_player(void)
 			break;
 			
 		case INIT_FALL:
-			speed = 1;
+			level_const.speed = 1;
 			player.player_S = FALL;
 			break;
 		
 		case FALL:
-			if(!((long int)player.y - speed < -128)) 
+			if(!((long int)player.y - level_const.speed < -128)) 
 			{
-				player.y -= speed; //gravity, hitting floor -> dead
-				if ((current_level.frame % 10) == 0) speed += 1;
-			} else player.status = DEAD;
-			
+				player.y -= level_const.speed; //gravity, hitting floor -> dead
+				if ((current_level.frame % 10) == 0) level_const.speed += 1;
+			} else 
+			{
+				player.status = DEAD;
+				play_explosion(&bang);
+			}
 			
 			//rotating
 			if( (current_level.frame % 3) == 0 )
@@ -153,7 +142,7 @@ void move_player(void)
 			{
 				play_music(&bing);
 				player.player_S = JUMP;
-				player.jump = jump;
+				player.jump = level_const.jump;
 			}
 			break;
 			

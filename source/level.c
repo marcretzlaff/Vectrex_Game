@@ -19,7 +19,23 @@ struct level_t current_level =
 	.frame = 0,
 };
 
-extern int speed;
+struct s_level_const level_const =
+{
+	//player.c
+	.jumpmp = 6,
+	.jump = 5,
+	.timeout = 5,
+	.speed = 1,
+	
+	//enemy.c
+	.pipe_space = 65,
+	.obstacles_iterator = 3,
+	.obstacles_count = 4,
+
+	//object.c
+	.hole_heigth_half = 35,
+	.max_next_pipe_rand = 50,
+};
 
 // ---------------------------------------------------------------------------
 
@@ -29,7 +45,18 @@ void level_init()
 	current_level.status = LEVEL_PLAY;
 	current_level.count = 0;
 	current_level.frame = 0;
-	speed = 0;
+
+	//init s_levels_const
+	switch(current_game.level)
+	{
+		case 1:
+			level_const = (struct s_level_const){6,5,5,1,65,3,4,35,50};
+			break;
+		default:
+			level_const = (struct s_level_const){6,5,5,1,65,3,4,35,50};
+			break;
+	}
+
 	for(i = 0; i< OBSTACLES_COUNT; i++)
 	{
 		obstacles[i].activ = 0;

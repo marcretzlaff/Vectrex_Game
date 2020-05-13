@@ -6,6 +6,22 @@
 #include "sound.h"
 #include "utils.h"
 
+const struct sound_music_t bing = 
+{
+	.adsr_table = (struct sound_adsr_table_t*) &Vec_ADSR_FADE4,
+	.twang_table = (struct sound_twang_table_t*) &Vec_TWANG_VIBE0,
+	{
+		0x20,8,
+		0x22,4,
+		0, 128
+	}
+};
+
+const struct sound_explosion_t bang =
+{
+	0b00101010, SOUND_EXPL_RISE, SOUND_VOL_RISE, 1U
+};
+
 // ---------------------------------------------------------------------------
 // Music data format:
 // header word -> $C84F 32 nibble ADSR table
