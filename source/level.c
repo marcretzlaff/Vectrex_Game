@@ -35,6 +35,9 @@ struct s_level_const level_const =
 	//object.c
 	.hole_heigth_half = 35,
 	.max_next_pipe_rand = 50,
+	
+	//level change
+	.end = 0,
 };
 
 // ---------------------------------------------------------------------------
@@ -50,10 +53,16 @@ void level_init()
 	switch(current_game.level)
 	{
 		case 1:
-			level_const = (struct s_level_const){6,5,5,1,65,3,4,35,50};
+			level_const = (struct s_level_const){6,5,5,1,130,1,2,50,40,0};
 			break;
+		case 2:
+			level_const = (struct s_level_const){6,5,5,1,65,3,4,35,50,0};
+			
+		case 3:
+			level_const = (struct s_level_const){6,5,5,1,52,4,5,35,60,0};
+			
 		default:
-			level_const = (struct s_level_const){6,5,5,1,65,3,4,35,50};
+			level_const = (struct s_level_const){6,5,5,1,65,3,4,35,50,0};
 			break;
 	}
 

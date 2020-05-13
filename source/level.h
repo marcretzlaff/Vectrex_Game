@@ -5,6 +5,8 @@
 #pragma once
 
 // ---------------------------------------------------------------------------
+#define OBSTACLES_COUNT 6 //max or screen size, used for allocation, only obstacles_count will be used
+
 struct s_level_const 
 {
 	//player.c
@@ -14,7 +16,7 @@ struct s_level_const
 	int speed;
 	
 	//enemy.c
-	int pipe_space;
+	unsigned int pipe_space;
 	int obstacles_iterator;
 	int obstacles_count;
 
@@ -22,6 +24,9 @@ struct s_level_const
 	//object.c
 	int hole_heigth_half;
 	int max_next_pipe_rand;
+	
+	//level change
+	int end;
 };
 
 // ---------------------------------------------------------------------------

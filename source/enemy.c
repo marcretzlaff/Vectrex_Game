@@ -87,11 +87,20 @@ void handle_enemies(void)
 	int i;
 	
 	//create new obstacle if time to do so
-	if((current_level.frame % level_const.pipe_space) == 0)
+	if(((current_level.frame % level_const.pipe_space) == 0))
 	{
-		init_object(&obstacles[level_const.obstacles_iterator]);
-		if(level_const.obstacles_iterator-- == 0) level_const.obstacles_iterator = level_const.obstacles_count - 1;
+		if(level_const.end == 1)
+		{
+			obstacles[level_const.obstacles_iterator].activ = 0;
+			if(level_const.obstacles_iterator-- == 0) level_const.obstacles_iterator = level_const.obstacles_count - 1;			
+		}
+		else
+		{
+			init_object(&obstacles[level_const.obstacles_iterator]);
+			if(level_const.obstacles_iterator-- == 0) level_const.obstacles_iterator = level_const.obstacles_count - 1;
+		}
 	}
+			
 	//handle all obstacles	
 	for( i = 0; i < level_const.obstacles_count; i++)
 	{ 

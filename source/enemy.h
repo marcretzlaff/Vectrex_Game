@@ -4,8 +4,7 @@
 
 #pragma once
 #include "object.h"
-
-#define OBSTACLES_COUNT 4
+#include "level.h"
 
 struct object_t obstacles[OBSTACLES_COUNT];
 

@@ -34,7 +34,8 @@ void move_object(struct object_t* p)
 {
 	(p->x)--;
 	if( p->x == -90)
-		current_game.score++;
+		if(current_game.score++ == (current_game.level * 10))
+			level_const.end = 1;	
 }
 
 // ---------------------------------------------------------------------------
