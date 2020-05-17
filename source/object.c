@@ -22,10 +22,10 @@ void init_object(struct object_t* p)
 	if(rand > (120 - level_const.hole_heigth_half))
 		p->pos = 120;
 	else if(rand < -(120 - level_const.hole_heigth_half))
-			p->pos = -(120 - (level_const.hole_heigth_half >> 1));
+			p->pos = -(120 - (level_const.hole_heigth_half << 1));
 	else
 		p->pos = (int)rand + level_const.hole_heigth_half;
-	p->x = 120; //appears from right side of screen 110
+	p->x = 127; //appears from right side of screen 110
 	p->activ = 1;
 }
 // ---------------------------------------------------------------------------
@@ -34,8 +34,8 @@ void move_object(struct object_t* p)
 {
 	(p->x)--;
 	if( p->x == -90)
-		if(current_game.score++ == (current_game.level * 10))
-			level_const.end = 1;	
+		if((current_game.score++ == (current_game.level * 10)) && (current_game.level != 4))
+			level_const.end = 255;	
 }
 
 // ---------------------------------------------------------------------------

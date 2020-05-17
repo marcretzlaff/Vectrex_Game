@@ -26,7 +26,7 @@ struct s_level_const
 	int max_next_pipe_rand;
 	
 	//level change
-	int end;
+	unsigned int end;
 };
 
 // ---------------------------------------------------------------------------

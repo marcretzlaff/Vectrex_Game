@@ -63,7 +63,7 @@ void draw_enemy(struct object_t* p)
 	Moveto_d(-128, p->x);		// move beam to object coordinates
 	dp_VIA_t1_cnt_lo = DRAWING_SPEED;	// set scalinf factor for drawing
 	//calculate vectors
-	temp = ((long int)p->pos + 57); //-70 (width of hole "pos" -> top edge) + 127
+	temp = ((long int)p->pos + (127 - (level_const.hole_heigth_half << 1)));
 	if(temp > 127)
 	{
 		vectors_obstacles[1] = (struct packet_t){DRAW,{ (int)(temp % 127) * SF, 0}};
@@ -89,7 +89,7 @@ void handle_enemies(void)
 	//create new obstacle if time to do so
 	if(((current_level.frame % level_const.pipe_space) == 0))
 	{
-		if(level_const.end == 1)
+		if(level_const.end != 0)
 		{
 			obstacles[level_const.obstacles_iterator].activ = 0;
 			if(level_const.obstacles_iterator-- == 0) level_const.obstacles_iterator = level_const.obstacles_count - 1;			

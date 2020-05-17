@@ -33,7 +33,7 @@ struct s_level_const level_const =
 	.obstacles_count = 4,
 
 	//object.c
-	.hole_heigth_half = 35,
+	.hole_heigth_half = 100,
 	.max_next_pipe_rand = 50,
 	
 	//level change
@@ -44,31 +44,30 @@ struct s_level_const level_const =
 
 void level_init()
 {
-	int i;
 	current_level.status = LEVEL_PLAY;
 	current_level.count = 0;
 	current_level.frame = 0;
+	
+	level_const.end = 0;
 
 	//init s_levels_const
 	switch(current_game.level)
 	{
 		case 1:
-			level_const = (struct s_level_const){6,5,5,1,130,1,2,50,40,0};
+			level_const = (struct s_level_const){6,5,5,1,128,1,2,45,80,0};
 			break;
 		case 2:
-			level_const = (struct s_level_const){6,5,5,1,65,3,4,35,50,0};
-			
+			level_const = (struct s_level_const){6,5,5,1,90,2,3,40,60,0};
+			break;
 		case 3:
-			level_const = (struct s_level_const){6,5,5,1,52,4,5,35,60,0};
-			
+			level_const = (struct s_level_const){6,5,5,1,65,3,4,40,70,0};
+			break;
+		case 4:
+			level_const = (struct s_level_const){6,5,5,1,52,4,5,35,70,0};
+			break;
 		default:
 			level_const = (struct s_level_const){6,5,5,1,65,3,4,35,50,0};
 			break;
-	}
-
-	for(i = 0; i< OBSTACLES_COUNT; i++)
-	{
-		obstacles[i].activ = 0;
 	}
 }	
 
@@ -93,6 +92,13 @@ void level_play(void)
 		handle_enemies();
 
 		current_level.frame += 1;
+
+		if(level_const.end != 0) 
+		{
+			print_string(120, -40, "LEVEL\x80");
+			print_unsigned_int(120, 40, current_game.level);
+			if(! --level_const.end) current_level.status = LEVEL_WON;
+		}
 		// end of frame
 	}
 }	
