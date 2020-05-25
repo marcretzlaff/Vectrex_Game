@@ -28,12 +28,12 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=0
-FILE_NAME_0=1081;C;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Clevel.c;0;4
+current_page=4
+FILE_NAME_0=1516;C;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Clevel.c;0;4
 FILE_NAME_1=556;C++;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Clevel.h;0;4
-FILE_NAME_2=2104;C;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Cenemy.c;0;4
+FILE_NAME_2=3030;C;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Cenemy.c;0;4
 FILE_NAME_3=3225;C;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Cplayer.c;0;4
-FILE_NAME_4=1758;C;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Cgame.c;0;4
+FILE_NAME_4=1992;C;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Cgame.c;0;4
 FILE_NAME_5=254;C++;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Cenemy.h;0;4
 FILE_NAME_6=383;C;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Cobject.c;0;4
 
@@ -51,10 +51,10 @@ EX_00_LB=_Execute
 EX_00_CM="%p\\make.bat" run
 EX_00_WD=%p
 CFT_00_LB=_Compile
-CFT_00_CM="%p\\make_opt.bat" build
+CFT_00_CM="%p\\make.bat" compile -O0
 CFT_00_WD=%p
 CFT_01_LB=_Build
-CFT_01_CM="%p\\make.bat" build
+CFT_01_CM="%p\\make_opt.bat" build -O2
 CFT_01_WD=%p
 CFT_02_LB=_Lint
 CFT_02_CM="%p\\make.bat" lint

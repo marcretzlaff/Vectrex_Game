@@ -95,8 +95,11 @@ void level_play(void)
 
 		if(level_const.end != 0) 
 		{
-			print_string(120, -40, "LEVEL\x80");
-			print_unsigned_int(120, 40, current_game.level);
+			if(level_const.end < 100)
+			{
+				print_string(120, -40, "LEVEL\x80");
+				print_unsigned_int(120, 40, current_game.level);
+			}
 			if(! --level_const.end) current_level.status = LEVEL_WON;
 		}
 		// end of frame
