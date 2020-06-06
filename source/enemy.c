@@ -44,8 +44,9 @@ void draw_enemy(struct object_t* p)
 	temp = (127 - (long int)p->pos);
 	if(temp > 127)
 	{
-		vectors_obstacles[1] = (struct packet_t){DRAW,{ -(int)(temp % 127) * SF, 0}};
-		vectors_obstacles[4] = (struct packet_t){DRAW,{ (int)(temp % 127) * SF, 0}};
+		temp -= 127;
+		vectors_obstacles[1] = (struct packet_t){DRAW,{ -(int)(temp) * SF, 0}};
+		vectors_obstacles[4] = (struct packet_t){DRAW,{ (int)(temp) * SF, 0}};
 		temp = 127;
 	}
 	else 
@@ -66,8 +67,9 @@ void draw_enemy(struct object_t* p)
 	temp = ((long int)p->pos + (127 - (level_const.hole_heigth_half << 1)));
 	if(temp > 127)
 	{
-		vectors_obstacles[1] = (struct packet_t){DRAW,{ (int)(temp % 127) * SF, 0}};
-		vectors_obstacles[4] = (struct packet_t){DRAW,{ -(int)(temp % 127) * SF, 0}};
+		temp -= 127;
+		vectors_obstacles[1] = (struct packet_t){DRAW,{ (int)(temp) * SF, 0}};
+		vectors_obstacles[4] = (struct packet_t){DRAW,{ -(int)(temp) * SF, 0}};
 		temp = 127;
 	}
 	else 
@@ -87,8 +89,9 @@ void handle_enemies(void)
 	int i;
 	
 	//create new obstacle if time to do so
-	if(((current_level.frame % level_const.pipe_space) == 0))
+	if(level_const.pipe_space_count-- == 0)
 	{
+		level_const.pipe_space_count = level_const.pipe_space;
 		if(level_const.end != 0)
 		{
 			obstacles[level_const.obstacles_iterator].activ = 0;

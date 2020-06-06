@@ -29,13 +29,27 @@ void print_unsigned_int(int y, int x, unsigned int z)
 {
 	volatile char message[4];
 	message[3] = '\x80';
-	unsigned int i = 2;
-	do
+	if (z < 100u)
 	{
-		message[i--] = (char) ('0' + z % 10);
-		z = z / 10;
+		message[0] = '0';
 	}
-	while (i != 255);	
+	else if (z < 200u)
+	{
+		message[0] = '1';
+		z = z - 100u;
+	}
+	else
+	{
+		message[0] = '2';
+		z = z - 200u;
+	}           	
+	message[1] = '0';
+	while (z > 9u)
+	{
+		++message[1];
+		z = z - 10u;
+	}
+	message[2] = '0' + z;
 	position_beam_s(y, x, 0x7F);
 	Print_Str((void*) &message[0]);
 }

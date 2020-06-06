@@ -10,6 +10,8 @@
 #include "enemy.h"
 #include "utils/print.h"
 
+//#define DEBUG
+
 // ---------------------------------------------------------------------------
 
 struct level_t current_level =
@@ -26,9 +28,12 @@ struct s_level_const level_const =
 	.jump = 5,
 	.timeout = 5,
 	.speed = 1,
+	.count_fall = 10,
+	.count_rot = 3,
 	
 	//enemy.c
 	.pipe_space = 65,
+	.pipe_space_count = 65,
 	.obstacles_iterator = 3,
 	.obstacles_count = 4,
 
@@ -51,31 +56,35 @@ void level_init()
 	level_const.end = 0;
 
 	//init s_levels_const
+	#ifdef DEBUG
+	level_const = (struct s_level_const){6,5,5,1,10,3,63,63,3,4,40,70,0};
+	#else
 	switch(current_game.level)
 	{
 		case 1:
-			level_const = (struct s_level_const){6,5,5,1,128,1,2,45,80,0};
+			level_const = (struct s_level_const){6,5,5,1,10,3,127,127,1,2,45,80,0};
 			break;
 		case 2:
-			level_const = (struct s_level_const){6,5,5,1,90,2,3,40,60,0};
+			level_const = (struct s_level_const){6,5,5,1,10,3,85,85,2,3,40,60,0};
 			break;
 		case 3:
-			level_const = (struct s_level_const){6,5,5,1,65,3,4,40,70,0};
+			level_const = (struct s_level_const){6,5,5,1,10,3,63,63,3,4,40,70,0};
 			break;
 		case 4:
-			level_const = (struct s_level_const){6,5,5,1,52,4,5,35,70,0};
+			level_const = (struct s_level_const){6,5,5,1,10,3,51,51,4,5,35,70,0};
 			break;
 		default:
-			level_const = (struct s_level_const){6,5,5,1,65,3,4,35,50,0};
+			level_const = (struct s_level_const){6,5,5,1,10,3,63,63,3,4,35,50,0};
 			break;
 	}
+	#endif
 }	
 
 // ---------------------------------------------------------------------------
 
 void level_play(void)
 {
-	init_player();
+	if(current_game.level == 1) init_player();
 	while(current_level.status == LEVEL_PLAY)
 	{
 		// game loop header start - do not change

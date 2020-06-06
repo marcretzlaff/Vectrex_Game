@@ -14,9 +14,12 @@ struct s_level_const
 	int jump;
 	int timeout;
 	int speed;
+	int count_fall;
+	int count_rot;
 	
 	//enemy.c
 	unsigned int pipe_space;
+	unsigned int pipe_space_count;
 	int obstacles_iterator;
 	int obstacles_count;
 

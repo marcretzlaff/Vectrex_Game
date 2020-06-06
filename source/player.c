@@ -106,7 +106,8 @@ void move_player(void)
 			if(!(player.y < -127)) 
 			{
 				player.y -= 1;
-			} else 
+			} 
+			else 
 			{
 				player.status = DEAD;
 				play_explosion(&bang);
@@ -123,18 +124,24 @@ void move_player(void)
 			if(!((long int)player.y - level_const.speed < -128)) 
 			{
 				player.y -= level_const.speed; //gravity, hitting floor -> dead
-				if ((current_level.frame % 10) == 0) level_const.speed += 1;
-			} else 
+				if (++level_const.count_fall == 11) 
+				{
+					level_const.speed += 1;
+					level_const.count_fall = 0;
+				}
+			} 
+			else 
 			{
 				player.status = DEAD;
 				play_explosion(&bang);
 			}
 			
 			//rotating
-			if( (current_level.frame % 3) == 0 )
+			if(++level_const.count_rot == 4)
 			{
 				if(rot > 54) rot -= 1;
 				Rot_VL_Mode(rot,&vectors_player,&vectors_player_ram);
+				level_const.count_rot = 0;
 			}
 			//jump input
 			check_joysticks();
