@@ -103,8 +103,17 @@ void game_over(void)
 
 int game(void)
 {
-	game_options();
-
+	do
+	{
+		Wait_Recal();
+		Print_Str_d(50,-87,"SILVER SURFER\x80");
+		Print_Str_d(0,-90,"PRESS BUTTON 4\x80");
+		Print_Str_d(-30,-70,"TO CONTINUE\x80");
+		check_buttons();
+	}
+	while(!button_1_4_pressed());
+	current_game.option_players = 1;
+	current_game.option_mode = 1;
 	if (button_1_4_held())
 	{
 		game_init();
@@ -113,7 +122,7 @@ int game(void)
 	}
 	else
 	{
-		return -1; 		// timeout to title screen
+		return -1; 		// jump to title screen
 	}
 }
 
