@@ -15,6 +15,7 @@ struct game_t
 	unsigned int score;
 	unsigned int player;
 	unsigned int frame;
+	unsigned int control;
 };
 
 // ---------------------------------------------------------------------------

@@ -144,12 +144,25 @@ void move_player(void)
 				level_const.count_rot = 0;
 			}
 			//jump input
-			check_joysticks();
-			if (joystick_1_up())
+			if(current_game.control)
 			{
-				play_music(&bing);
-				player.player_S = JUMP;
-				player.jump = level_const.jump;
+				check_joysticks();
+				if (joystick_1_up())
+				{
+					play_music(&bing);
+					player.player_S = JUMP;
+					player.jump = level_const.jump;
+				}
+			}
+			else
+			{
+				check_buttons();
+				if (button_1_4_pressed())
+				{
+					play_music(&bing);
+					player.player_S = JUMP;
+					player.jump = level_const.jump;
+				}
 			}
 			break;
 			

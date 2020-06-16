@@ -20,7 +20,8 @@ struct game_t current_game =
 	.level = 0,
 	.score =  0,
 	.player = 0,
-	.frame = 0
+	.frame = 0,
+	.control = 0
 };
 
 // ---------------------------------------------------------------------------
@@ -91,6 +92,10 @@ void game_over(void)
 	{
 		Sync();
 		Intensity_5F();
+		print_string(100, -100, "SCORE:\x80");
+		print_unsigned_int(100, 40, current_game.score);
+		print_string(80, -100, "HIGHSCORE:\x80");
+		print_unsigned_int(80, 40, Vec_High_Score);
 		print_string(0, -64, "GAME OVER\x80");
 		print_string(20, -87, "SILVER SURFER\x80");
 		Print_Ships(0x69, current_game.lives, 0xC0E2);
@@ -106,10 +111,24 @@ int game(void)
 	do
 	{
 		Wait_Recal();
-		Print_Str_d(50,-87,"SILVER SURFER\x80");
-		Print_Str_d(0,-90,"PRESS BUTTON 4\x80");
-		Print_Str_d(-30,-70,"TO CONTINUE\x80");
+		Print_Str_d( 60,-87,"SILVER SURFER\x80");
+		Print_Str_d(-60,-93,"PRESS BUTTON 4\x80");
+		Print_Str_d(-90,-70,"TO CONTINUE\x80");
+		
+		if(current_game.control)
+		{
+			Print_Str_d(0,-93,"CONTROL    JOY\x80");
+		}
+		else
+		{
+			Print_Str_d(0,-93,"CONTROL BUTTON\x80");
+		}
 		check_buttons();
+		
+		if(button_1_1_pressed())
+		{
+			current_game.control = (unsigned int) (current_game.control? 0:1);
+		}
 	}
 	while(!button_1_4_pressed());
 	current_game.option_players = 1;

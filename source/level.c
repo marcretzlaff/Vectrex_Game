@@ -49,6 +49,7 @@ struct s_level_const level_const =
 
 void level_init()
 {
+	int i = 0;
 	current_level.status = LEVEL_PLAY;
 	current_level.count = 0;
 	current_level.frame = 0;
@@ -78,6 +79,11 @@ void level_init()
 			break;
 	}
 	#endif
+	
+	for(i = 0; i < level_const.obstacles_count;i++)
+	{
+		obstacles[i].activ = 0;
+	}
 }	
 
 // ---------------------------------------------------------------------------

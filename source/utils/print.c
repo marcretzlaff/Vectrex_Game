@@ -53,7 +53,6 @@ void print_unsigned_int(int y, int x, unsigned int z)
 	position_beam_s(y, x, 0x7F);
 	Print_Str((void*) &message[0]);
 }
-
 // ---------------------------------------------------------------------------
 // print decimal int value at absolute coordinates (y, x)
 
