@@ -17,8 +17,6 @@
 struct level_t current_level =
 {
 	.status = LEVEL_LOST,
-	.count = 0,
-	.frame = 0,
 };
 
 struct s_level_const level_const =
@@ -49,12 +47,8 @@ struct s_level_const level_const =
 
 void level_init()
 {
-	int i = 0;
+	int i;
 	current_level.status = LEVEL_PLAY;
-	current_level.count = 0;
-	current_level.frame = 0;
-	
-	level_const.end = 0;
 
 	//init s_levels_const
 	#ifdef DEBUG
@@ -79,11 +73,6 @@ void level_init()
 			break;
 	}
 	#endif
-	
-	for(i = 0; i < level_const.obstacles_count;i++)
-	{
-		obstacles[i].activ = 0;
-	}
 }	
 
 // ---------------------------------------------------------------------------
@@ -105,8 +94,6 @@ void level_play(void)
 		// frame start: this is where the action happens...
 		handle_player();
 		handle_enemies();
-
-		current_level.frame += 1;
 
 		if(level_const.end != 0) 
 		{

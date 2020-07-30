@@ -34,7 +34,7 @@ void move_object(struct object_t* p)
 {
 	(p->x)--;
 	if( p->x == -90)
-		if((current_game.score++ == (current_game.level * 10)) && (current_game.level != 4))
+		if((current_game.score++ == (current_game.level * 10)) && (current_game.level != current_game.maxlevel)) //advance to next level, start level change 
 			level_const.end = 255;	
 }
 
@@ -46,7 +46,8 @@ int check_collision(int y0, struct object_t* ob)
 	
 	if( (ob->x < -95) && (ob->x > -105) ) //x-plane violation width 10 
 	{
-		if(!( ((y0 - 7) >  (ob->pos - (level_const.hole_heigth_half << 1))) && ((y0 + 7) < ob->pos) )) hit = 1; //y-plane violation 
+		if(!( ((y0 - 10) >  (ob->pos - (level_const.hole_heigth_half << 1))) && ((y0 + 5) < ob->pos) )) hit = 1; //y-plane violation 
+		// -10 bottom +5 top for smoother collison look
 	}
 	return hit;
 }

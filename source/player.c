@@ -165,6 +165,9 @@ void move_player(void)
 				}
 			}
 			break;
+		case WAIT:
+			break;
+
 			
 		default:
 			break;
@@ -181,7 +184,7 @@ void handle_player(void)
 	if (player.status == DEAD)
 	{
 		current_level.status = LEVEL_LOST;
-		player.player_S = INIT_FALL;
+		player.player_S = WAIT;
 	}
 }
 

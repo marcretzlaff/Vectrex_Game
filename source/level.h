@@ -46,8 +46,6 @@ enum level_status_t
 struct level_t
 {
 	enum level_status_t status;
-	unsigned int count;
-	unsigned int frame;
 };
 
 // ---------------------------------------------------------------------------

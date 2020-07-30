@@ -115,9 +115,11 @@ void handle_enemies(void)
 			{
 			    play_explosion(&bang);
 				player.status = DEAD;
-				for( i = 0; i < level_const.obstacles_count; i++)
+			
+				//reset obstacles
+				for(i = 0; i < OBSTACLES_COUNT;i++)
 				{
-					obstacles[i].activ = 0; 
+					obstacles[i].activ = 0;
 				}
 			}
 		}

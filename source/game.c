@@ -20,8 +20,8 @@ struct game_t current_game =
 	.level = 0,
 	.score =  0,
 	.player = 0,
-	.frame = 0,
-	.control = 0
+	.control = 1,
+	.maxlevel = 4
 };
 
 // ---------------------------------------------------------------------------

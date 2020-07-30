@@ -19,7 +19,8 @@ typedef enum player_state_t
 	FALL,
 	INIT_TIMEOUT,
 	TIMEOUT,
-	JUMP
+	JUMP,
+	WAIT
 } player_state;
 // ---------------------------------------------------------------------------
 
