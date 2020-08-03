@@ -111,9 +111,9 @@ int game(void)
 	do
 	{
 		Wait_Recal();
-		Print_Str_d( 60,-87,"SILVER SURFER\x80");
-		Print_Str_d(-60,-93,"PRESS BUTTON 4\x80");
-		Print_Str_d(-90,-70,"TO CONTINUE\x80");
+		Print_Str_d( 60,-84,"SILVER SURFER\x80");
+		Print_Str_d(-60,-91,"PRESS BUTTON 4\x80");
+		Print_Str_d(-90,-75,"TO CONTINUE\x80");
 		
 		if(current_game.control)
 		{

@@ -93,13 +93,12 @@ void move_player(void)
 			Rot_VL_Mode(rot,&vectors_player,&vectors_player_ram);
 			
 			player.jump--;
-			if(player.jump == 0) player.player_S = INIT_TIMEOUT;
+			if(player.jump == 0)
+			{
+				player.player_S = TIMEOUT;
+				player.timeout = level_const.timeout;
+			}
 			break;
-			
-		case INIT_TIMEOUT:
-			player.timeout = level_const.timeout;
-			player.player_S = TIMEOUT;
-			break;	
 				
 		case TIMEOUT:
 			player.timeout--;
