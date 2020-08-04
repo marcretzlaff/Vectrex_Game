@@ -16,6 +16,7 @@ struct game_t
 	unsigned int player;
 	unsigned int control;
 	unsigned int maxlevel;
+	unsigned int world;
 };
 
 // ---------------------------------------------------------------------------

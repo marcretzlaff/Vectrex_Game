@@ -21,7 +21,8 @@ struct game_t current_game =
 	.score =  0,
 	.player = 0,
 	.control = 1,
-	.maxlevel = 4
+	.maxlevel = 4,
+	.world = 1
 };
 
 // ---------------------------------------------------------------------------
@@ -111,23 +112,36 @@ int game(void)
 	do
 	{
 		Wait_Recal();
-		Print_Str_d( 60,-84,"SILVER SURFER\x80");
+		Print_Str_d( 80,-84,"SILVER SURFER\x80");
 		Print_Str_d(-60,-91,"PRESS BUTTON 4\x80");
 		Print_Str_d(-90,-75,"TO CONTINUE\x80");
 		
 		if(current_game.control)
 		{
-			Print_Str_d(0,-93,"CONTROL    JOY\x80");
+			Print_Str_d(-10,-93,"CONTROL    JOY\x80");
 		}
 		else
 		{
-			Print_Str_d(0,-93,"CONTROL BUTTON\x80");
+			Print_Str_d(-10,-93,"CONTROL BUTTON\x80");
 		}
-		check_buttons();
+
+		if(current_game.world)
+		{
+			Print_Str_d(20,-93, "WORLD    EARTH\x80");
+		}
+		else
+		{
+			Print_Str_d(20,-93, "WORLD     MOON\x80");
+		}
 		
+		check_buttons();
 		if(button_1_1_pressed())
 		{
 			current_game.control = (unsigned int) (current_game.control? 0:1);
+		}
+		if(button_1_2_pressed())
+		{
+			current_game.world = (unsigned int) (current_game.world? 0:1);
 		}
 	}
 	while(!button_1_4_pressed());

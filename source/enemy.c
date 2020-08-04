@@ -20,6 +20,8 @@
 
 #define DRAWING_SPEED 0x7f
 
+struct object_t obstacles[OBSTACLES_COUNT];
+
 struct packet_t vectors_obstacles[] =
 {
 	{DRAW, { -4 * SF, 0 * SF}},
@@ -87,7 +89,6 @@ void draw_enemy(struct object_t* p)
 void handle_enemies(void)
 {
 	int i;
-	
 	//create new obstacle if time to do so
 	if(level_const.pipe_space_count-- == 0)
 	{
@@ -115,12 +116,6 @@ void handle_enemies(void)
 			{
 			    play_explosion(&bang);
 				player.status = DEAD;
-			
-				//reset obstacles
-				for(i = 0; i < OBSTACLES_COUNT;i++)
-				{
-					obstacles[i].activ = 0;
-				}
 			}
 		}
 	}

@@ -6,7 +6,7 @@
 #include "object.h"
 #include "level.h"
 
-struct object_t obstacles[OBSTACLES_COUNT];
+extern struct object_t obstacles[OBSTACLES_COUNT];
 
 // ---------------------------------------------------------------------------
 

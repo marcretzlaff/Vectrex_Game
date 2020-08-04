@@ -10,6 +10,7 @@
 #include "game.h"
 #include "level.h"
 #include "player.h"
+#include "enemy.h"
 
 
 // ---------------------------------------------------------------------------
@@ -82,6 +83,7 @@ void init_player(void)
 void move_player(void)
 {
 	static unsigned int rot = 64;
+	static int fall;
 	
 	switch(player.player_S)
 	{
@@ -107,7 +109,7 @@ void move_player(void)
 				player.y -= 1;
 			} 
 			else 
-			{
+			{				
 				player.status = DEAD;
 				play_explosion(&bang);
 			}
@@ -116,6 +118,7 @@ void move_player(void)
 			
 		case INIT_FALL:
 			level_const.speed = 1;
+			fall = level_const.count_fall;
 			player.player_S = FALL;
 			break;
 		
@@ -123,10 +126,10 @@ void move_player(void)
 			if(!((long int)player.y - level_const.speed < -128)) 
 			{
 				player.y -= level_const.speed; //gravity, hitting floor -> dead
-				if (++level_const.count_fall == 11) 
+				if (!--fall) 
 				{
 					level_const.speed += 1;
-					level_const.count_fall = 0;
+					fall = level_const.count_fall;
 				}
 			} 
 			else 
@@ -166,7 +169,6 @@ void move_player(void)
 			break;
 		case WAIT:
 			break;
-
 			
 		default:
 			break;

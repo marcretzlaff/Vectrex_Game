@@ -28,15 +28,13 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=7
-FILE_NAME_0=1012;C;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Clevel.c;0;4
+current_page=0
+FILE_NAME_0=1160;C;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Clevel.c;0;4
 FILE_NAME_1=1331;C++;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Clevel.h;0;4
-FILE_NAME_2=2618;C;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Cenemy.c;0;4
-FILE_NAME_3=3762;C;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Cplayer.c;0;4
-FILE_NAME_4=2401;C;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Cgame.c;0;4
-FILE_NAME_5=254;C++;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Cenemy.h;0;4
-FILE_NAME_6=690;C;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Cobject.c;0;4
-FILE_NAME_7=608;C++;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Cgame.h;0;4
+FILE_NAME_2=4301;C;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Cplayer.c;0;4
+FILE_NAME_3=823;C;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Cgame.c;0;4
+FILE_NAME_4=571;C++;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Cenemy.h;0;4
+FILE_NAME_5=2843;C;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Cenemy.c;0;4
 
 [build-menu]
 NF_00_LB=_Make
