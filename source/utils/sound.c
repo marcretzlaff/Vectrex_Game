@@ -17,6 +17,17 @@ const struct sound_music_t bing =
 	}
 };
 
+const struct sound_music_t boost = 
+{
+	.adsr_table = (struct sound_adsr_table_t*) &Vec_ADSR_FADE4,
+	.twang_table = (struct sound_twang_table_t*) &Vec_TWANG_VIBE0,
+	{
+		0x28,4,
+		0x28,4,
+		0, 128
+	}
+};
+
 const struct sound_explosion_t bang =
 {
 	0b00101010, SOUND_EXPL_RISE, SOUND_VOL_RISE, 1U
@@ -62,16 +73,16 @@ const struct sound_music_t music_off =
 // 4 = Noise source #
 // 5 = Noise source #
 // Byte 1 = Noise source sweep
-// = 0 – Sweep frequency UP
-// > 0 – Sweep frequencey DOWN
-// < 0 – Inhibit frequency sweep
+// = 0 ï¿½ Sweep frequency UP
+// > 0 ï¿½ Sweep frequencey DOWN
+// < 0 ï¿½ Inhibit frequency sweep
 // Byte 2 = Volume sweep
-// = 0 – Sweep volume UP
-// > 0 – Sweep volume DOWN
-// < 0 – Inhibit volume sweep
+// = 0 ï¿½ Sweep volume UP
+// > 0 ï¿½ Sweep volume DOWN
+// < 0 ï¿½ Inhibit volume sweep
 // Byte 3 = Explosion duration
-// $01 – Longest explosion duration
-// $80 – Shortest explosion duration
+// $01 ï¿½ Longest explosion duration
+// $80 ï¿½ Shortest explosion duration
 // Entry Values
 // U = Explosion parameter table pointer
 // DP = $C8

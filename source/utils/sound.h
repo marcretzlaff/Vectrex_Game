@@ -49,6 +49,7 @@ struct sound_music_t
 
 // ---------------------------------------------------------------------------
 extern const struct sound_music_t bing;
+extern const struct sound_music_t boost;
 extern const struct sound_explosion_t bang;
 
 extern const struct sound_music_t music_off;

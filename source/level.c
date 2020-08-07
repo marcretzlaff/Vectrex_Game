@@ -28,6 +28,9 @@ struct s_level_const level_const =
 	.speed = 1,
 	.count_fall = 10,
 	.count_rot = 3,
+	.boost = 100,
+	.boosttimeout = 255,
+	.boosted = 0,
 	
 	//enemy.c
 	.pipe_space = 65,
@@ -52,47 +55,47 @@ void level_init()
 
 	//init s_levels_const
 	#ifdef DEBUG
-	level_const = (struct s_level_const){10,6,2,1,10,3,127,127,1,2,60,100,0};
+	level_const = (struct s_level_const){10,6,2,1,10,3,100,255,0,127,127,1,2,60,100,0};
 	#else
 	if(current_game.world)
 	{
 		switch(current_game.level)
 		{
 			case 1:
-				level_const = (struct s_level_const){6,5,2,1,10,3,127,127,1,2,60,70,0};
+				level_const = (struct s_level_const){6,5,2,1,10,3,100,255,0,127,127,1,2,60,70,0};
 				break;
 			case 2:
-				level_const = (struct s_level_const){6,5,2,1,10,3,85,85,2,3,50,70,0};
+				level_const = (struct s_level_const){6,5,2,1,10,3,100,255,0,85,85,2,3,50,70,0};
 				break;
 			case 3:
-				level_const = (struct s_level_const){6,5,2,1,10,3,63,63,3,4,50,80,0};
+				level_const = (struct s_level_const){6,5,2,1,10,3,100,255,0,63,63,3,4,45,80,0};
 				break;
 			case 4:
-				level_const = (struct s_level_const){6,5,2,1,10,3,51,51,4,5,50,90,0};
+				level_const = (struct s_level_const){6,5,2,1,10,3,100,255,0,51,51,4,5,45,90,0};
 				break;
 			default:
-				level_const = (struct s_level_const){6,5,2,1,10,3,63,63,3,4,35,50,0};
+				level_const = (struct s_level_const){6,5,2,1,10,3,100,255,0,63,63,3,4,35,50,0};
 				break;
 		}
 	}
-	else
+	else //moon
 	{
 		switch(current_game.level)
 		{
 			case 1:
-				level_const = (struct s_level_const){10,5,2,1,10,3,127,127,1,2,45,80,0};
+				level_const = (struct s_level_const){10,5,2,1,10,3,127,255,0,127,127,1,2,50,80,0};
 				break;
 			case 2:
-				level_const = (struct s_level_const){10,5,2,1,10,3,85,85,2,3,40,70,0};
+				level_const = (struct s_level_const){10,5,2,1,10,3,127,255,0,85,85,2,3,45,70,0};
 				break;
 			case 3:
-				level_const = (struct s_level_const){10,5,2,1,10,3,63,63,3,4,40,70,0};
+				level_const = (struct s_level_const){10,5,2,1,10,3,127,255,0,63,63,3,4,45,70,0};
 				break;
 			case 4:
-				level_const = (struct s_level_const){10,5,2,1,10,3,51,51,4,5,35,100,0};
+				level_const = (struct s_level_const){10,5,2,1,10,3,127,255,0,51,51,4,5,40,100,0};
 				break;
 			default:
-				level_const = (struct s_level_const){10,5,2,1,10,3,127,127,1,2,45,80,0};
+				level_const = (struct s_level_const){10,5,2,1,10,3,127,255,0,127,127,1,2,45,80,0};
 				break;
 		}
 	}

@@ -29,9 +29,9 @@ long_line_column=72
 
 [files]
 current_page=0
-FILE_NAME_0=1160;C;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Clevel.c;0;4
-FILE_NAME_1=1331;C++;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Clevel.h;0;4
-FILE_NAME_2=4301;C;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Cplayer.c;0;4
+FILE_NAME_0=1683;C;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Clevel.c;0;4
+FILE_NAME_1=557;C++;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Clevel.h;0;4
+FILE_NAME_2=4630;C;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Cplayer.c;0;4
 FILE_NAME_3=823;C;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Cgame.c;0;4
 FILE_NAME_4=571;C++;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Cenemy.h;0;4
 FILE_NAME_5=2843;C;0;EUTF-8;1;1;0;A%3A%5CVectrex%5Cvectrex%5CVectrex%5CProjects%5CSilver_Surfer%5Csource%5Cenemy.c;0;4

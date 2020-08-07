@@ -84,6 +84,18 @@ void move_player(void)
 {
 	static unsigned int rot = 64;
 	static int fall;
+	static int boostmp = 2;
+	static unsigned int boostto = 0;
+	unsigned int button = 0;
+	
+	if(level_const.boosted)
+	{
+		if(!--boostto)
+		{
+			boostto = level_const.boosttimeout;
+			level_const.boosted = 0;
+		}	
+	}
 	
 	switch(player.player_S)
 	{
@@ -145,9 +157,18 @@ void move_player(void)
 				Rot_VL_Mode(rot,&vectors_player,&vectors_player_ram);
 				level_const.count_rot = 0;
 			}
+
+			check_buttons();
+			button = buttons_pressed();
 			//jump input
 			if(current_game.control)
 			{
+				if((button & 0b00000100) && !level_const.boosted) //button 3
+				{
+					play_music(&boost);
+					player.player_S = BOOST;
+					break;
+				}
 				check_joysticks();
 				if (joystick_1_up())
 				{
@@ -158,8 +179,13 @@ void move_player(void)
 			}
 			else
 			{
-				check_buttons();
-				if (button_1_4_pressed())
+				if((button & 0b00000100) && !level_const.boosted) //button 3
+				{
+					player.player_S = BOOST;
+					play_music(&boost);
+					break;
+				}
+				else if(button & 0b00001000) //button 4
 				{
 					play_music(&bing);
 					player.player_S = JUMP;
@@ -167,7 +193,20 @@ void move_player(void)
 				}
 			}
 			break;
-		case WAIT:
+
+		case BOOST:
+			if(player.y < (127 - (level_const.boost >> 1))) player.y += level_const.boost >> 1; //max height
+			else player.y = 127;
+			//boost- rot to standard
+			rot = 64;
+			Rot_VL_Mode(rot,&vectors_player,&vectors_player_ram);
+
+			if(!--boostmp)
+			{
+				boostmp = 2;
+				level_const.boosted = 1;
+				player.player_S = INIT_FALL;
+			} 
 			break;
 			
 		default:
@@ -185,7 +224,7 @@ void handle_player(void)
 	if (player.status == DEAD)
 	{
 		current_level.status = LEVEL_LOST;
-		player.player_S = WAIT;
+		player.player_S = INIT_FALL;
 	}
 }
 

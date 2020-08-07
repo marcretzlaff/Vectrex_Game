@@ -16,6 +16,9 @@ struct s_level_const
 	int speed;
 	int count_fall;
 	int count_rot;
+	int boost;
+	unsigned int boosttimeout;
+	int boosted;
 	
 	//enemy.c
 	unsigned int pipe_space;
